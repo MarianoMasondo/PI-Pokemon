@@ -1,11 +1,11 @@
 const { Router } = require("express");
 
-const pokemonsRouter = Router();
+const pokemonsRoutes = Router();
 
-pokemonsRouter.get("/");
-pokemonsRouter.get("/:id");
-pokemonsRouter.get("/name");
-pokemonsRouter.post("/")
+pokemonsRoutes.get("/");
+pokemonsRoutes.get("/:id");
+pokemonsRoutes.get("/name");
+pokemonsRoutes.post("/")
 
 
-module.exports = pokemonsRouter;
+module.exports = pokemonsRoutes;

@@ -1,7 +1,7 @@
 const { Router } = require("express");
 
-const typesRouter = Router();
+const typesRoutes = Router();
 
-typesRouter.get("/")
+typesRoutes.get("/")
 
-module.exports = typesRouter;
+module.exports = typesRoutes;
