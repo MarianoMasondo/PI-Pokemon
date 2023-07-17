@@ -1,49 +1,36 @@
 const axios = require("axios");
-const { pokemons, types} = require("../db")
+const { Pokemon, Type} = require("../db")
 const { Op } = require("sequelize")
 
 const nameDataPokemons = async (name) => {
     try {
-        const response = await axios.get(`https://pokeapi.co/api/v2/pokemon/${name}`)
-        const apiData = response.data.results.map(
-            ({
-                id,
-                name,
-                types,
-                hp,
-                attack,
-                defense,
-                speed,
-                height,
-                weight,
-                image
-            }) => ({
-                id: id,
-                name: name,
-                types: types.map(element => element.name),
-                hp: hp,
-                attack: attack,
-                defense: defense,
-                speed: speed,
-                height: height,
-                weight: weight,
-                image
-            }));
+        const response = await axios.get(`https://pokeapi.co/api/v2/pokemon/${name}`);
+        const apiData = {
+          id: response.data.id,
+          name: response.data.name,
+          type: response.data.types.map((el) => el.type.name),
+          hp: response.data.stats[0].base_stat,
+          attack: response.data.stats[1].base_stat,
+          defense: response.data.stats[2].base_stat,
+          speed: response.data.stats[3].base_stat,
+          height: response.data.height,
+          weight: response.data.weight,
+          image: response.data.sprites.other['official-artwork'].front_default,
+        };       
 
-            const dbData = await pokemons.findAll({
+            const dbData = await Pokemon.findAll({
                 where: {
                     name: {
                         [Op.like]: `%${name}%`,
                     },
                 },
                 include: [{
-                    model: types,
+                    model: Type,
                     attributes: ["name"],
                     through: {
                         attributes: []
                     } 
                 }],
-                limit: 12,
             })
             
             const dbDataPokemons = dbData.map(({
@@ -78,6 +65,7 @@ const nameDataPokemons = async (name) => {
         return allData;
 
     } catch (error){
+        console.log(error);
         return {message: "Error al buscar los Pokemons"}
     }
 }
