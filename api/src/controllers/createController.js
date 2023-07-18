@@ -31,7 +31,7 @@ const createPokemons = async ({
     },
   });
 
-  await newType.addType(addType);
+  await newPokemon.addType(addType);
 
   const pokemonRelation = await Pokemon.findOne({
     where: {
@@ -50,8 +50,5 @@ const createPokemons = async ({
 
   return pokemonRelation;
 };
-//         catch(error){
-//             throw Error({message: "No se pudo encontrar pokemon"})
-//         }
-// }
+
 module.exports = createPokemons;

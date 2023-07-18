@@ -4,8 +4,25 @@ const createNewPokemon = async (req, res) => {
   const { name, types, hp, attack, defense, speed, height, weight, image } =
     req.body;
 
+  // Verificar campos obligatorios
+  if (
+    !name ||
+    !types ||
+    !hp ||
+    !attack ||
+    !defense ||
+    !speed ||
+    !height ||
+    !weight ||
+    !image
+  ) {
+    return res.status(400).json({
+      error: "Todos los campos obligatorios deben ser proporcionados.",
+    });
+  }
+
   try {
-    const postPokemon = await createPokemons(
+    const postPokemon = await createPokemons({
       name,
       types,
       hp,
@@ -14,11 +31,12 @@ const createNewPokemon = async (req, res) => {
       speed,
       height,
       weight,
-      image
-    );
+      image,
+    });
     res.status(200).json(postPokemon);
   } catch (error) {
     res.status(404).json({ error: error.message });
   }
 };
+
 module.exports = createNewPokemon;
