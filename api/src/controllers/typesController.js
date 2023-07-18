@@ -11,5 +11,8 @@ const allTypes = async () => {
     await Type.bulkCreate(typesData);
     return typesData;
   }
+
+  const typesFromDatabase = typesFromDatabase.map((types) => types);
+  return typesFromDatabase;
 };
 module.exports = allTypes;
