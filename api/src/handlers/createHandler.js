@@ -3,8 +3,7 @@ const createPokemons = require("../controllers/createController");
 const createNewPokemon = async (req, res) => {
   const { name, types, hp, attack, defense, speed, height, weight, image } =
     req.body;
-
-  // Verificar campos obligatorios
+    
   if (
     !name ||
     !types ||
