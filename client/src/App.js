@@ -14,7 +14,7 @@ function App() {
       {location.pathname !== "/" && <NavBar />}
       <Route exact path ="/" component={LandingPage} />
       <Route exact path ="/home" component={HomePage} />
-      <Route exact path ="/detail" component={DetailPage} />
+      <Route exact path ="/detail/:id" component={DetailPage} />
       <Route exact path ="/create" component={FormPage} /> 
     </div>
   );

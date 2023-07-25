@@ -1,7 +1,7 @@
 import axios from "axios";
 
 export const GET_POKEMONS = "GET_POKEMONS";
-export const GET_POKEMON = "GET_POKEMON"
+export const GET_DETAIL_POKEMON = "GET_POKEMON"
 
 export const getPokemons = () => {
     return async function(dispatch){
@@ -12,10 +12,10 @@ export const getPokemons = () => {
     }
 }
 
-export const getPokemonById = (id) => {
+export const getPokemonDetail = (id) => {
     return async function(dispatch){
-        const apiData = await axios.get(`https://pokeapi.co/api/v2/pokemon/${id}`);
-        const pokemon =apiData.data;
-        dispatch({type: GET_POKEMON, payload: pokemon})
+        const apiData = await axios.get(`http://localhost:3001/pokemons/${id}`);
+        const pokemonDetail =apiData.data;
+        dispatch({type: GET_DETAIL_POKEMON, payload: pokemonDetail})
     }
 }

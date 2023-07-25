@@ -2,6 +2,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    
   }
   
   .card_box {
@@ -13,6 +14,9 @@
     box-shadow: 0 25px 50px rgba(0,0,0,0.55);
     cursor: pointer;
     transition: all .3s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
   
   .card_box:hover {
@@ -60,19 +64,21 @@
     background-image: linear-gradient(45deg, #FF512F 0%, #F09819  51%, #FF512F  100%);
   }
 .cardContainer img {
-    width: 300px;
-    height: 200px;
-    border-radius: 10px 10px 0 0;
+  width: 200px; /* Reducimos un poco el ancho para ajustarlo mejor */
+  height: 150px; /* Reducimos un poco la altura para ajustarlo mejor */
+  border-radius: 10px 10px 0 0;
 }
 
 .cardContainer h1{
-    text-align: center;
-    font-family: sans-serif;
-    color: brown;
+  text-align: center;
+  font-family: sans-serif;
+  color: brown;
+  margin: 10px 0;
 }
 
 .cardContainer h3{
-    text-align: center;
-    font-family: sans-serif;
-    color: rgb(245, 12, 12);
+  text-align: center;
+  font-family: sans-serif;
+  color: rgb(245, 12, 12);
+  margin: 0;
 }

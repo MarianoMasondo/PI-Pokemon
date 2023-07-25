@@ -9,7 +9,7 @@ const Card = ({name, image, types, id}) => {
                 <div className={styles.card_box}>
             <img src={image} alt="" />
             <h1>{name}</h1>
-            <h3>{ types }</h3>
+            <h3>{ types && types.join(", ") }</h3>
                 </div>
             </NavLink>
         </div>
