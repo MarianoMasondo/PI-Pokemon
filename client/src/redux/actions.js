@@ -40,6 +40,6 @@ export const orderPokemons = (payload) => {
 export const orderAttack = (payload) => {
     return ({
         type: ORDER_POKEMON_ATTACK,
-        payload
+        payload,
     })
 }

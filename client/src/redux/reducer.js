@@ -37,13 +37,13 @@ const reducer = (state = initialState, action) => {
                 };
           
               case ORDER_POKEMON_ATTACK:
-                let pokemonsSortRating =
-                  action.payload === "best"
-                    ? [...state.pokemons].sort((a, b) => b.rating - a.rating)
-                    : [...state.pokemons].sort((a, b) => a.rating - b.rating);
+                let pokemonsAttack =
+                  action.payload === "lowest"
+                    ? [...state.pokemons].sort((a, b) => b.attack - a.attack)
+                    : [...state.pokemons].sort((a, b) => a.attack - b.attack);
                 return {
                   ...state,
-                  pokemons: pokemonsSortRating,
+                  pokemons: pokemonsAttack,
                 };
           
               default:

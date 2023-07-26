@@ -1,7 +1,7 @@
 import { NavLink } from "react-router-dom";
 import styles from "./Card.module.css"
 
-const Card = ({name, image, types, id}) => {
+const Card = ({name, image, types, id, attack}) => {
 
     function capitalize(name) {
         return name.charAt(0).toUpperCase() + name.slice(1).toLowerCase();
@@ -14,6 +14,7 @@ const Card = ({name, image, types, id}) => {
             <h1>{capitalize(name)}</h1>
             <img src={image} alt="" />
             <h3>{ capitalize (types && types.join(", ")) }</h3>
+            {attack}
                 </div>
             </NavLink>
         </div>
