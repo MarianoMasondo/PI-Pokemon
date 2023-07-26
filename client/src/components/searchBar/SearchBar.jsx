@@ -25,8 +25,12 @@ export const SearchBar = () => {
     return (
 <div className={styles.inputContainer}>
     <form action="">
-  <input onChange={handleChange} type="search" placeholder="search" value={name}/> 
-  <button onClick={handleSearch}  type="submit">Go</button>
+  <input 
+    onChange={handleChange} 
+    type="search" 
+    placeholder="Search Pokemon..." 
+    value={name}/> 
+  <button onClick={handleSearch} type="submit">Go</button>
 
     </form>
 </div>

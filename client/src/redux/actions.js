@@ -3,6 +3,8 @@ import axios from "axios";
 export const GET_POKEMONS = "GET_POKEMONS";
 export const GET_DETAIL_POKEMON = "GET_POKEMON";
 export const SEARCH_POKEMON = "SEARCH_POKEMON";
+export const SORT_POKEMONS_ASC_DESC = "SORT_POKEMONS_ASC_DESC";
+export const ORDER_POKEMON_ATTACK = "ORDER_POKEMON_ATTACK";
 
 export const getPokemons = () => {
     return async function(dispatch){
@@ -26,4 +28,18 @@ export const searchPokemon = (name) => {
         type: SEARCH_POKEMON,
         payload: name,
     }
+}
+
+export const orderPokemons = (payload) => {
+    return ({
+    type: SORT_POKEMONS_ASC_DESC,
+    payload,
+    })
+}
+
+export const orderAttack = (payload) => {
+    return ({
+        type: ORDER_POKEMON_ATTACK,
+        payload
+    })
 }
