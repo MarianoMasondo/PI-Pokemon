@@ -12,7 +12,7 @@ const allTypes = async () => {
     return typesData;
   }
 
-  const typesFromDatabase = typesFromDatabase.map((types) => types);
+  const typesFromDatabase = await Type.findAll();
   return typesFromDatabase;
 };
 module.exports = allTypes;

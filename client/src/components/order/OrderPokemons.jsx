@@ -24,8 +24,10 @@ const OrderPokemons = () => {
         e.preventDefault();
         if (e.target.value === "default") {
           dispatch(getPokemons()); // Restablecer el orden original llamando a la acción correspondiente
-        } else {
-          dispatch(orderAttack(e.target.value));
+        } else if (e.target.value === "asc") {
+          dispatch(orderAttack("highest")); // Utilizar "highest" para ordenar de mayor a menor el atributo "attack"
+        } else if (e.target.value === "desc") {
+          dispatch(orderAttack("lowest")); // Utilizar "lowest" para ordenar de menor a mayor el atributo "attack"
         }
         setAux(!aux);
       };
@@ -41,8 +43,8 @@ const OrderPokemons = () => {
             <div className={`${styles.orderByAttack}`}>
                 <select onChange={(e) => handleOrderAttack(e)}>
                     <option value="default">Sort by attack</option>
-                    <option value="asc">Powerfull</option>
-                    <option value="desc">Weakest</option>
+                    <option value="asc">Weakest</option>
+                    <option value="desc">Strongest</option>
                 </select>
             </div>
         </div>
