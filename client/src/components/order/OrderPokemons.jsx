@@ -42,7 +42,7 @@ const OrderPokemons = () => {
             </div>
             <div className={`${styles.orderByAttack}`}>
                 <select onChange={(e) => handleOrderAttack(e)}>
-                    <option value="default">Sort by attack</option>
+                    <option value="default">Search by attack</option>
                     <option value="asc">Weakest</option>
                     <option value="desc">Strongest</option>
                 </select>

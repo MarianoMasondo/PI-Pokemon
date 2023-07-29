@@ -43,7 +43,7 @@ const reducer = (state = initialState, action) => {
           case FILTER_APIDB:
             const apiDbCopy = state.pokemons;
             const pokemonApiDb = 
-            action.payload === "database"
+            action.payload === "dataBase"
             ? apiDbCopy.filter((pokemon) => pokemon.createDB)
             : apiDbCopy.filter((pokemon) => !pokemon.createDB);
             return {

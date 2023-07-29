@@ -97,7 +97,7 @@ const FormPage = () => {
     const types = useSelector((state) => state.types);
 
     useEffect(() => {
-        dispatch(allTypes());
+        dispatch(allTypes())
     }, [dispatch])
 
     const handleTypes = (event) => {
@@ -224,7 +224,7 @@ const FormPage = () => {
             )}
 
             <section>
-                <select onChange={(e) => handleTypes(e)} value={form.types.join(", ")} multiple>
+                <select onChange={(e) => handleTypes(e)} value={form.types} multiple>
                 <option value="default" disabled>
                     Select Types
                 </option>
