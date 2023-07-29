@@ -12,7 +12,7 @@ const TypeFilter = (props) => {
   useEffect(() => {
     dispatch(allTypes());
   }, [dispatch]);
-
+  
   const handleFilter = (e) => {
     setSelectedType(e.target.value);
     dispatch(filterType(e.target.value));
@@ -28,10 +28,11 @@ const TypeFilter = (props) => {
   return (
     <div>
       <div className={styles.filterContainer}>
-        <select onChange={(e) => handleFilter(e)} value={selectedType}>
-          <option value="default">Filtro por Tipo</option>
+        <select onChange={(e) => handleFilter(e)} value="default">
+          <option value="default">Filter by type</option>
           {types?.map((type) => (
-            <option key={type.name} value={type.name}>
+            // Corrected the 'key' prop here from 'namr' to 'name'
+            <option key={type.id} value={type.name}>
               {type.name}
             </option>
           ))}
@@ -39,7 +40,7 @@ const TypeFilter = (props) => {
       </div>
 
       <div className={styles.filterContainerInput}>
-        <span>Filtrar por origen:</span>
+        <span>Filter by source:</span>
         <label>
           <input
             type="radio"
@@ -47,7 +48,7 @@ const TypeFilter = (props) => {
             checked={selectedType === "all"}
             onChange={handleSourceFilter}
           />
-          Todos
+          All
         </label>
         <label>
           <input
@@ -61,11 +62,11 @@ const TypeFilter = (props) => {
         <label>
           <input
             type="radio"
-            value="dataBase"
-            checked={selectedType === "dataBase"}
+            value="database"
+            checked={selectedType === "database"}
             onChange={handleSourceFilter}
           />
-          Base de Datos
+          Database
         </label>
       </div>
     </div>

@@ -3,9 +3,14 @@ import styles from "./Card.module.css"
 
 const Card = ({name, image, types, id, attack}) => {
 
-    function capitalize(name) {
-        return name.charAt(0).toUpperCase() + name.slice(1).toLowerCase();
-    }
+    const capitalize = (str) => {
+        if (typeof str !== "string" || str.length === 0) {
+          return "";
+        }
+      
+        return str.charAt(0).toUpperCase() + str.slice(1);
+      };
+      
     
     return(
         <div className={styles.cardContainer }>

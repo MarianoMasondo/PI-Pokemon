@@ -10,7 +10,7 @@ export const SearchBar = () => {
     const handleChange = (event) => {
         event.preventDefault();
         setName(event.target.value);
-        // dispatch(searchPokemon(event.target.value)) para buscar juegos que coincidan con la letra ingresada pero no me haría falta el botón
+        dispatch(searchPokemon(event.target.value)) //para buscar juegos que coincidan con la letra ingresada pero no me haría falta el botón
     }
 
     const handleSearch = (event) => {
@@ -30,7 +30,7 @@ export const SearchBar = () => {
     type="search" 
     placeholder="Search Pokemon..." 
     value={name}/> 
-  <button onClick={handleSearch} type="submit">Go</button>
+  <button onClick={handleSearch} type="submit">Reset</button>
 
     </form>
 </div>
