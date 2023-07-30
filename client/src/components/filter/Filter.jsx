@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { allTypes, filterApiDb, filterType } from "../../redux/actions";
 import styles from "./Filter.module.css";
@@ -31,7 +31,6 @@ const TypeFilter = (props) => {
         <select onChange={(e) => handleFilter(e)} value="default">
           <option value="default">Filter by type</option>
           {types?.map((type) => (
-            // Corrected the 'key' prop here from 'namr' to 'name'
             <option key={type.id} value={type.name}>
               {type.name}
             </option>

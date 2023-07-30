@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { getPokemons, orderAttack, orderPokemons } from "../../redux/actions";
 import styles from "./OrderPokemons.module.css";
 import { useDispatch } from "react-redux";

@@ -1,0 +1,16 @@
+.homeContainer {
+    background-color: #1b6b93;
+    background-size: cover;
+  }
+  
+  .cardContainer {
+    align-items: center;
+    justify-content: center;
+    border: 3px solid #164b60;
+    display: flex;
+    flex-direction: row;
+    border-radius: 15px;
+    flex-wrap: wrap;
+    gap: 2em;
+    padding: 50px;
+  }
