@@ -20,7 +20,11 @@ const initialState = {
 const reducer = (state = initialState, action) => {
   switch (action.type) {
     case GET_POKEMONS:
-      return { ...state, pokemons: action.payload, pokemonsCopy: action.payload };
+      return {
+        ...state,
+        pokemons: action.payload,
+        pokemonsCopy: action.payload, // Set the copy with the original data
+      };
 
     case GET_DETAIL_POKEMON:
       return { ...state, pokemonDetail: action.payload };
@@ -53,20 +57,20 @@ const reducer = (state = initialState, action) => {
         pokemons: pokemonTypes,
       };
 
-    case FILTER_APIDB:
-      const apiDbCopy = state.pokemonsCopy;
-      const pokemonApiDb =
-        action.payload === "database"
-          ? apiDbCopy.filter((pokemon) => pokemon.createDB)
-          : apiDbCopy.filter((pokemon) => !pokemon.createDB);
-      return {
-        ...state,
-        pokemons: action.payload === "all" ? apiDbCopy : pokemonApiDb,
-      };
+      case FILTER_APIDB:
+        const apiDbCopy = [...state.pokemonsCopy];
+        const pokemonApiDb =
+          action.payload === "database"
+            ? apiDbCopy.filter((pokemon) => pokemon.createDB)
+            : apiDbCopy.filter((pokemon) => !pokemon.createDB);
+        return {
+          ...state,
+          pokemons: action.payload === "all" ? state.pokemonsCopy : pokemonApiDb,
+        };
+      
 
     case SORT_POKEMONS_ASC_DESC:
       let pokemonsSort = [...state.pokemons];
-
       pokemonsSort.sort((a, b) => {
         if (action.payload === "asc") {
           return a.name.localeCompare(b.name);

@@ -3,9 +3,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { allTypes, filterApiDb, filterType } from "../../redux/actions";
 import styles from "./Filter.module.css";
 
-const TypeFilter = (props) => {
+const TypeFilter = () => {
   const [selectedType, setSelectedType] = useState("");
-  const [aux, setAux] = useState(false);
   const types = useSelector((state) => state.types);
   const dispatch = useDispatch();
 
@@ -16,15 +15,13 @@ const TypeFilter = (props) => {
   const handleFilter = (e) => {
     setSelectedType(e.target.value);
     dispatch(filterType(e.target.value));
-    setAux(!aux);
-    // props.setCurrentPage(1);
   };
 
   const handleSourceFilter = (e) => {
     setSelectedType(e.target.value);
     dispatch(filterApiDb(e.target.value));
   };
-
+ 
   return (
     <div>
       <div className={styles.filterContainer}>

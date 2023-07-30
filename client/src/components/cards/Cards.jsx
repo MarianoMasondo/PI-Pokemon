@@ -21,6 +21,7 @@ const Cards = () => {
             height={pokemon.height}
             weight={pokemon.weight}
             types={pokemon.types}
+            createDb={pokemon.createDb}
             />
         })}
         </div>

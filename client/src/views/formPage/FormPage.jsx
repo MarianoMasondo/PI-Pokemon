@@ -249,8 +249,7 @@ const FormPage = () => {
 
 <section>
       <h6>Select Types</h6>
-      <div className="typesContainerCreate">
-           
+      <div className="typesContainerCreate">           
             <select
               className="select-button"
               name="type"
