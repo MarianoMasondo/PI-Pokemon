@@ -11,6 +11,7 @@ import {
 
 const initialState = {
   pokemons: [],
+  pokemonsCopy: [],
   pokemonDetail: [],
   searchPokemon: [],
   types: [],
@@ -19,15 +20,16 @@ const initialState = {
 const reducer = (state = initialState, action) => {
   switch (action.type) {
     case GET_POKEMONS:
-      return { ...state, pokemons: action.payload };
+      return { ...state, pokemons: action.payload, pokemonsCopy: action.payload };
 
     case GET_DETAIL_POKEMON:
       return { ...state, pokemonDetail: action.payload };
 
     case SEARCH_POKEMON:
+      let pokeCopy = [...state.pokemonsCopy];
       return {
         ...state,
-        pokemons: state.pokemons.filter((pokemon) =>
+        pokemons: pokeCopy.filter((pokemon) =>
           pokemon.name.toLowerCase().includes(action.payload.toLowerCase())
         ),
       };
@@ -39,7 +41,7 @@ const reducer = (state = initialState, action) => {
       };
 
     case FILTER_TYPES:
-      const pokemonCopy = [...state.pokemons];
+      const pokemonCopy = [...state.pokemonsCopy];
       const pokemonTypes =
         action.payload === "all"
           ? pokemonCopy
@@ -52,7 +54,7 @@ const reducer = (state = initialState, action) => {
       };
 
     case FILTER_APIDB:
-      const apiDbCopy = state.pokemons;
+      const apiDbCopy = state.pokemonsCopy;
       const pokemonApiDb =
         action.payload === "database"
           ? apiDbCopy.filter((pokemon) => pokemon.createDB)

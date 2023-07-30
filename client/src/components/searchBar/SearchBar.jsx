@@ -1,39 +1,35 @@
 import { useDispatch } from "react-redux";
 import styles from "./SearchBar.module.css";
 import React, { useState } from "react";
-import { searchPokemon } from "../../redux/actions";
+import { getPokemons, searchPokemon } from "../../redux/actions"; 
 
-export const SearchBar = () => {
+const SearchBar = () => {
     const dispatch = useDispatch();
     const [name, setName] = useState("");
 
     const handleChange = (event) => {
         event.preventDefault();
         setName(event.target.value);
-        dispatch(searchPokemon(event.target.value)) //para buscar juegos que coincidan con la letra ingresada pero no me haría falta el botón
+        dispatch(searchPokemon(event.target.value));
     }
-
-    const handleSearch = (event) => {
+    
+    const handleReset = (event) => {
         event.preventDefault();
-        if(!name){
-            return alert("Please, insert a Pokemon name") 
-        }
-        dispatch(searchPokemon(name));
-        setName("");
+        dispatch(getPokemons()); 
     }
 
     return (
-<div className={styles.inputContainer}>
-    <form action="">
-  <input 
-    onChange={handleChange} 
-    type="search" 
-    placeholder="Search Pokemon..." 
-    value={name}/> 
-  <button onClick={handleSearch} type="submit">Reset</button>
-
-    </form>
-</div>
-
-    )
+        <div className={styles.inputContainer}>
+            <form action="">
+                <input 
+                    onChange={handleChange} 
+                    placeholder="Search Pokemon..." 
+                    type="search" 
+                    value={name}
+                /> 
+                <button onClick={handleReset}>Reset</button> 
+            </form>
+        </div>
+    );
 }
+export default SearchBar;
