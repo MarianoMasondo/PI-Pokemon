@@ -25,9 +25,9 @@ const HomePage = () => {
     }, [dispatch]);
 
     return (
-        <div>
-            <div className={styles.homeContainer}>
-                <h1>Esto es Home</h1>
+        <div className={styles.homeContainer}>
+            <div >
+                <h1>Pokemons Site</h1>
             </div>
             <div className={`${styles.paginationContainerCards} ${styles.cardContainer}`}>
                 {currentPokemons?.map((pokemon) => {

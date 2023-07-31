@@ -143,10 +143,11 @@ const FormPage = () => {
 
   return (
     <div className={styles.formContainer}>
-      <h1>Create your Pokemon</h1>
+      <h1 className={styles.title}>Create your Pokemon</h1>
       <form onSubmit={(e) => handleSubmit(e)} className={styles.form}>
         <section>
           <input
+            className={styles.inputContainer}
             placeholder="Name here..."
             type="text"
             name="name"
@@ -160,6 +161,7 @@ const FormPage = () => {
 
         <section>
           <input
+            className={styles.inputContainer}
             placeholder="Image link here..."
             type="url"
             name="image"
@@ -173,6 +175,7 @@ const FormPage = () => {
 
         <section>
           <input
+            className={styles.inputContainer}
             placeholder="Hp here..."
             type="text"
             name="hp"
@@ -186,6 +189,7 @@ const FormPage = () => {
 
         <section>
           <input
+            className={styles.inputContainer}
             placeholder="Attack here..."
             type="text"
             name="attack"
@@ -199,6 +203,7 @@ const FormPage = () => {
 
         <section>
           <input
+            className={styles.inputContainer}
             placeholder="Defense here..."
             type="text"
             name="defense"
@@ -212,6 +217,7 @@ const FormPage = () => {
 
         <section>
           <input
+            className={styles.inputContainer}
             placeholder="Speed here..."
             type="text"
             name="speed"
@@ -225,6 +231,7 @@ const FormPage = () => {
 
         <section>
           <input
+            className={styles.inputContainer}
             placeholder="Height here..."
             type="text"
             name="height"
@@ -238,6 +245,7 @@ const FormPage = () => {
 
         <section>
           <input
+            className={styles.inputContainer}
             placeholder="Weight here..."
             type="text"
             name="weight"
@@ -251,9 +259,9 @@ const FormPage = () => {
 
 <section>
       <h6>Select Types</h6>
-      <div className="typesContainerCreate">           
+      <div className={styles.typesContainerCreate}>           
             <select
-              className="select-button"
+              className={styles.selectButon}
               name="type"
               onChange={handleSelect}
             >
@@ -266,13 +274,13 @@ const FormPage = () => {
               })}
             </select>
           </div>
-          <div className="selected">
+          <div className={styles.selected}>
             {form.types?.map((type) => {
               return (
-                <span className="typeSpan" key={type}>
+                <span className={styles.typeSpan} key={type}>
                   {type}
                   <button
-                    className="deleteBtn"
+                    className={styles.deleteBtn}
                     onClick={() => handleDelete(type)}
                   >
                     x
@@ -286,7 +294,7 @@ const FormPage = () => {
   <p className={styles["error-message"]}>{errors.types}</p>
 )}
 
-        <button type="submit">Create Pokemon</button>
+        <button className={styles.submit} type="text">Create Pokemon</button>
       </form>
     </div>
   );
