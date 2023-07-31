@@ -79,7 +79,7 @@ const FormPage = () => {
             speed: "",
             height: "",
             weight: "",
-            types: [],
+            types: [], // Clear the types array
           });
           setErrors({
             name: false,
@@ -100,6 +100,7 @@ const FormPage = () => {
       setErrors(formErrors);
     }
   };
+  
 
   const handleInputChange = (e) => {
     setForm({
@@ -127,10 +128,10 @@ const FormPage = () => {
     });
   };
 
+
   const handleSelect = (e) => {
     const selected = e.target.value;
-    if (form.types.length >= 2)
-      return alert("Cannot choose more than two types");
+    if (form.types.length >= 2) return alert("Cannot choose more than two types");
     if (!form.types.includes(selected)) {
       setForm({
         ...form,
@@ -138,6 +139,7 @@ const FormPage = () => {
       });
     }
   };
+  
 
   return (
     <div className={styles.formContainer}>

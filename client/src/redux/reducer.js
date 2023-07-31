@@ -15,6 +15,7 @@ const initialState = {
   pokemonDetail: [],
   searchPokemon: [],
   types: [],
+  
 };
 
 const reducer = (state = initialState, action) => {
@@ -61,11 +62,11 @@ const reducer = (state = initialState, action) => {
         const apiDbCopy = [...state.pokemonsCopy];
         const pokemonApiDb =
           action.payload === "database"
-            ? apiDbCopy.filter((pokemon) => pokemon.createDB)
-            : apiDbCopy.filter((pokemon) => !pokemon.createDB);
+            ? apiDbCopy.filter((pokemon) => pokemon.createDb)
+            : apiDbCopy.filter((pokemon) => !pokemon.createDb);
         return {
           ...state,
-          pokemons: action.payload === "all" ? state.pokemonsCopy : pokemonApiDb,
+          pokemons: action.payload === "all" ? apiDbCopy : pokemonApiDb,
         };
       
 

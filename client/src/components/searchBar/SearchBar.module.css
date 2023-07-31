@@ -61,3 +61,7 @@
       border-radius: 0.8rem;
     }
   } */
+  .error {
+    color: red;
+    margin-top: 5px;
+}

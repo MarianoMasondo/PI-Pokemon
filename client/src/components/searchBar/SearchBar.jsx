@@ -15,7 +15,8 @@ const SearchBar = () => {
     
     const handleReset = (event) => {
         event.preventDefault();
-        dispatch(getPokemons()); 
+        dispatch(getPokemons());
+        setName(""); // Aquí establecemos el valor del campo de búsqueda a una cadena vacía
     }
 
     return (
@@ -32,4 +33,5 @@ const SearchBar = () => {
         </div>
     );
 }
+
 export default SearchBar;
