@@ -8,6 +8,8 @@
 
 .navButtons {
   display: flex; /* Para que los botones estén en línea */
+  margin-left: 60px;
+
 }
 
 button {
@@ -35,4 +37,14 @@ button:active {
 
 .navButtons button:hover {
   background-color: #7C9D96;
+}
+
+.logoContainer {
+  display: flex;
+  align-items: center;
+  margin: 0 auto;
+}
+
+.searchBarContainer{
+  margin-right: 60px;
 }

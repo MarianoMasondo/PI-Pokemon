@@ -102,8 +102,8 @@ const TypeFilter = () => {
   };
 
   return (
-    <div>
-      <div className={styles.filterContainer}>
+    <div className={styles.filterContainer}>
+      <div >
         <select onChange={(e) => handleFilter(e)} value={selectedType}>
           <option value="default">Filter by type</option>
           {types?.map((type) => (

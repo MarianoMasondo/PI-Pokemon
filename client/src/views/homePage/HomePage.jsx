@@ -4,6 +4,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { getPokemons } from "../../redux/actions";
 import Cards from "../../components/card/Card";
 import Pagination from "../../components/pagination/Pagination";
+import OrderPokemons from "../../components/order/OrderPokemons";
+import TypeFilter from "../../components/filter/Filter";
 
 
 const HomePage = () => {
@@ -26,9 +28,12 @@ const HomePage = () => {
 
     return (
         <div className={styles.homeContainer}>
-            {/* <div className={styles.headerContainer}>
-                <h1>Pokemons Site</h1>
-            </div> */}
+                <div>
+                <OrderPokemons />
+            </div>
+            <div>
+            <TypeFilter />
+            </div>
             <div className={`${styles.paginationContainerCards} ${styles.cardContainer}`}>
                 {currentPokemons?.map((pokemon) => {
                     return (
@@ -57,6 +62,8 @@ const HomePage = () => {
   paginate={paginate}
 />
             </div>
+            
+
         </div>
     );
 }

@@ -32,7 +32,7 @@ const OrderPokemons = () => {
         setAux(!aux);
       };
     return (
-        <div>
+        <div className={styles.orderContainer}>
             <div className={`${styles.orderAscDesc}`}>
                 <select onChange={(e) => handleOrderAscDesc(e)}>
                     <option value="default">Order alphabetically</option>
