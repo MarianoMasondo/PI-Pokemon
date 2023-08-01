@@ -1,24 +1,27 @@
 .paginationContainer {
-    margin: 14px;
-  }
-  
-  .paginationContainer button {
-    margin-right: 8px;
-    padding: 10px 15px;
-    border-radius: 10%;
-    cursor: pointer;
-  }
-  
-  .paginationContainer button:hover {
-    background-color: #164b60;
-    color: #a2ff86;
-  }
-  
-  .paginationContainer button:active {
-    transform: scale(0.9);
-  }
-  
-  .paginationContainer button.active {
-    background-color: #164b60;
-    color: #a2ff86;
-  }
+  margin: 14px;
+}
+
+.paginationContainer button {
+  margin-right: 8px;
+  padding: 10px 15px;
+  border-radius: 10%;
+  cursor: pointer;
+  color: black; /* Color de número rojo */
+  background-color: #F0DE36; /* Color de fondo amarillo */
+  border: 1px solid black; /* Borde rojo */
+}
+
+.paginationContainer button:hover {
+  background-color: #D71313; /* Cambiar fondo al hacer hover */
+  color: #F0DE36; /* Cambiar color de número al hacer hover */
+}
+
+.paginationContainer button:active {
+  transform: scale(0.9);
+}
+
+.paginationContainer button.active {
+  background-color: #D71313;
+  color: #F0DE36;
+}

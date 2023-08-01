@@ -143,8 +143,8 @@ const FormPage = () => {
 
   return (
     <div className={styles.formContainer}>
-      <h1 className={styles.title}>Create your Pokemon</h1>
       <form onSubmit={(e) => handleSubmit(e)} className={styles.form}>
+      <h1 className={styles.title}>Create your Pokemon</h1>
         <section>
           <input
             className={styles.inputContainer}

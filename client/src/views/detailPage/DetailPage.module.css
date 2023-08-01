@@ -1,0 +1,56 @@
+.detailContainer {
+  background-color: #F0DE36;
+  display: flex;
+  flex-direction: column;
+  padding: 5px; 
+  color: #1b6b93;
+  width: 100%;
+  height: fit-content;
+  align-items: center;
+  border: 5px solid #000000;
+  
+}
+
+.image {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.characteristics {
+  color: #0D1282;
+  margin: 0px;
+  text-align: center;
+  border: 1px solid black;
+}
+
+.h1 {
+  text-align: center;
+  margin: 10px;
+  background-image: linear-gradient(to right, #ff0000, #ffa500, #ffff00);
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(2px 2px 4px rgba(255, 0, 0, 0.8));
+}
+
+.card {
+  background: linear-gradient(
+    170deg,
+    rgb(215, 222, 245) 0%,
+    rgb(124, 162, 243) 50%,
+    #0D1282 100%
+  );
+  padding: 10px; /* Reducir el espacio alrededor del contenido */
+  width: 500px; /* Establecer un ancho mínimo */
+  height: 650px; /* Ajustar la altura según el contenido */
+  border-radius: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+

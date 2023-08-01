@@ -1,40 +1,47 @@
 .formContainer {
   display: flex;
   flex-direction: column;
-  align-items: center; /* Center items horizontally */
-  justify-content: center; /* Center items vertically */
-  height: 100vh; /* This will make the form container take the full height of the viewport */
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-image: url("https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/7efdaf9e-1f66-42ce-ae5a-77307f45243c/d5nc329-35dfaffd-dbd8-4dd4-94a5-5bcf2df4ab89.jpg/v1/fill/w_1048,h_762,q_70,strp/pokemon_wallpaper__gotta_catch__em_all_by_k_u_r_o_m_i_z_u_d5nc329-pre.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9OTMxIiwicGF0aCI6IlwvZlwvN2VmZGFmOWUtMWY2Ni00MmNlLWFlNWEtNzczMDdmNDUyNDNjXC9kNW5jMzI5LTM1ZGZhZmZkLWRiZDgtNGRkNC05NGE1LTViY2YyZGY0YWI4OS5qcGciLCJ3aWR0aCI6Ijw9MTI4MCJ9XV0sImF1ZCI6WyJ1cm46c2VydmljZTppbWFnZS5vcGVyYXRpb25zIl19.o8CiGoWpRYgPselFmjvzAaGM9Ww2hJDYeDMX6po1_eg");
+  background-size: cover;
 }
 
 .form {
-    background-color: #0D1282;
-    border-radius: 20px;
-    box-sizing: border-box;
-    height: 500px;
-    padding: 30px;
-    width: 320px;
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
+  background-color: #0000FF; /* Cambia este valor a azul (#0000FF) */
+  border-radius: 20px;
+  box-sizing: border-box;
+  height: 500px;
+  padding: 30px;
+  width: 320px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: -100px;
+}
   
   .title {
-    color: #ec1b1b;
+    color: yellow;
     font-family: sans-serif;
     font-size: 36px;
     font-weight: 600;
+    text-align: center;
   }
   
   .inputContainer {
+    padding: 10px;
     height: 25px;
     position: relative;
     width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
+    border-radius: 20px; /* Agrega esta línea para hacer los inputs redondeados */
   }
+  
 
   .typesContainerCreate {
     display: flex;
@@ -46,15 +53,15 @@
   .selected {
     display: flex;
     flex-wrap: wrap;
-    gap: 20x;
   }
   
   .typeSpan {
     display: flex;
+    justify-content: center;
     align-items: center;
     background-color: #3a3d53;
-    border-radius: 12px;
-    padding: 4px 8px;
+    border-radius: 20px;
+    padding: 10px ;
     margin-right: 4px;
     color: #eee;
   }
@@ -69,75 +76,10 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 20px;
-    height: 20px;
+    margin-left: 8px;
+    width: 15px;
+    height: 15px;
   }
-  
-  .ic1 {
-    margin-top: 40px;
-  }
-  
-  .ic2 {
-    margin-top: 30px;
-  }
-  
-  .input {
-    background-color: #303245;
-    border-radius: 12px;
-    border: 0;
-    box-sizing: border-box;
-    color: #eee;
-    font-size: 18px;
-    height: 100%;
-    outline: 0;
-    padding: 4px 20px 0;
-    width: 100%;
-  }
-  
-  .cut {
-    background-color: #15172b;
-    border-radius: 10px;
-    height: 20px;
-    left: 20px;
-    position: absolute;
-    top: -20px;
-    transform: translateY(0);
-    transition: transform 200ms;
-    width: 76px;
-  }
-  
-  .cut-short {
-    width: 50px;
-  }
-  
-  .iLabel {
-    color: #65657b;
-    font-family: sans-serif;
-    left: 20px;
-    line-height: 14px;
-    pointer-events: none;
-    position: absolute;
-    transform-origin: 0 50%;
-    transition: transform 200ms, color 200ms;
-    top: 20px;
-  }
-  
-  .input:focus ~ .cut {
-    transform: translateY(8px);
-  }
-  
-  .input:focus ~ .iLabel {
-    transform: translateY(-30px) translateX(10px) scale(0.75);
-  }
-  
-  .input:not(:focus) ~ .iLabel {
-    color: #808097;
-  }
-  
-  .input:focus ~ .iLabel {
-    color: #dc2f55;
-  }
-  
   .submit {
     background-color: #08d;
     border-radius: 12px;
@@ -146,8 +88,8 @@
     color: #eee;
     cursor: pointer;
     font-size: 18px;
-    height: 50px;
-    margin-top: 38px;
+    height: 60px;
+    margin-top: 20px;
     text-align: center;
     width: 100%;
   }

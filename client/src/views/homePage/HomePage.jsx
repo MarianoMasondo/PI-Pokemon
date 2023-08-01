@@ -26,7 +26,7 @@ const HomePage = () => {
 
     return (
         <div className={styles.homeContainer}>
-            <div >
+            <div className={styles.headerContainer}>
                 <h1>Pokemons Site</h1>
             </div>
             <div className={`${styles.paginationContainerCards} ${styles.cardContainer}`}>
