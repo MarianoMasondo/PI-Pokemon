@@ -2,7 +2,7 @@
   display: flex;
   align-items: center; /* Opcional: alinea verticalmente los elementos en el centro */
   justify-content: space-between; /* Distribuye los elementos horizontalmente */
-  background-color: red;
+  background-color: #A1CCD1;
   padding: 10px;
 }
 

@@ -7,14 +7,14 @@
   padding: 10px 15px;
   border-radius: 10%;
   cursor: pointer;
-  color: black; /* Color de número rojo */
-  background-color: #F0DE36; /* Color de fondo amarillo */
-  border: 1px solid black; /* Borde rojo */
+  color: #F4F2DE; /* Color de número rojo */
+  background-color: #A1CCD1; /* Color de fondo amarillo */
+  border: 1px solid #7C9D96; /* Borde rojo */
 }
 
 .paginationContainer button:hover {
-  background-color: #D71313; /* Cambiar fondo al hacer hover */
-  color: #F0DE36; /* Cambiar color de número al hacer hover */
+  background-color: #7C9D96; /* Cambiar fondo al hacer hover */
+  color: #F4F2DE; /* Cambiar color de número al hacer hover */
 }
 
 .paginationContainer button:active {
@@ -22,6 +22,6 @@
 }
 
 .paginationContainer button.active {
-  background-color: #D71313;
-  color: #F0DE36;
+  background-color: #7C9D96;
+  color: #F4F2DE;
 }

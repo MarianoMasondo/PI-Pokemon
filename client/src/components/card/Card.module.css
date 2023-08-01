@@ -10,9 +10,9 @@
   border-radius: 20px;
   background: linear-gradient(
     170deg,
-    rgb(187, 183, 245) 0%,
-    rgb(108, 122, 243) 50%,
-    rgb(14, 55, 236) 100%
+    #F4F2DE 0%,
+    #A1CCD1 50%,
+    #7C9D96 100%
   );
   position: relative;
   box-shadow: 0 25px 50px rgba(0, 0, 0, 0.55);
