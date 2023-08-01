@@ -1,66 +1,18 @@
-/* .inputContainer {
-    display: flex;
-    background: white;
-    border-radius: 1rem;
-    background: linear-gradient(135deg, #23272F 0%, #14161a 100%);
-    box-shadow: 10px 10px 20px #0e1013, -10px -10px 40px #383e4b;
-    padding: 0.3rem;
-    gap: 0.3rem;
+  .input {
+    border-radius: 10px;
+    outline: 2px solid #E9B384;
+    border: 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    background-color: #F4F2DE;
+    outline-offset: 3px;
+    padding: 10px 1rem;
+    transition: 0.25s;
   }
   
-  .inputContainer input {
-    border-radius: 0.8rem 0 0 0.8rem;
-    background: #23272F;
-    box-shadow: inset 5px 5px 10px #0e1013, inset -5px -5px 10px #383e4b, 0px 0px 100px rgba(255, 212, 59, 0), 0px 0px 100px rgba(255, 102, 0, 0);
-    width: 100%;
-    flex-basis: 75%;
-    padding: 1rem;
-    border: none;
-    border: 1px solid transparent;
-    color: white;
-    transition: all 0.2s ease-in-out;
+  .input:focus {
+    outline-offset: 5px;
+    background-color: #fff
   }
-  
-  .inputContainer input:focus {
-    border: 1px solid #FFD43B;
-    outline: none;
-    box-shadow: inset 0px 0px 10px rgba(255, 102, 0, 0.5), inset 0px 0px 10px rgba(255, 212, 59, 0.5), 0px 0px 100px rgba(255, 212, 59, 0.5), 0px 0px 100px rgba(255, 102, 0, 0.5);
-  }
-  
-  .inputContainer button {
-    flex-basis: 25%;
-    padding: 1rem;
-    background: linear-gradient(135deg, rgb(255, 212, 59) 0%, rgb(255, 102, 0) 100%);
-    box-shadow: 0px 0px 1px rgba(255, 212, 59, 0.5), 0px 0px 1px rgba(255, 102, 0, 0.5);
-    font-weight: 900;
-    letter-spacing: 0.3rem;
-    text-transform: uppercase;
-    color: #23272F;
-    border: none;
-    width: 100%;
-    border-radius: 0 1rem 1rem 0;
-    transition: all 0.2s ease-in-out;
-  }
-  
-  .inputContainer button:hover {
-    background: linear-gradient(135deg, rgb(255, 212, 59) 50%, rgb(255, 102, 0) 100%);
-    box-shadow: 0px 0px 100px rgba(255, 212, 59, 0.5), 0px 0px 100px rgba(255, 102, 0, 0.5);
-  }
-  
-  @media (max-width: 500px) {
-    .inputContainer {
-      flex-direction: column;
-    }
-  
-    .inputContainer input {
-      border-radius: 0.8rem;
-    }
-  
-    .inputContainer button {
-      padding: 1rem;
-      border-radius: 0.8rem;
-    }
-  } */
   .error {
     color: red;
     margin-top: 5px;

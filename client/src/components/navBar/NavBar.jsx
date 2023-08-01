@@ -9,7 +9,7 @@ const NavBar = () => {
     return(
         <div className={styles.navBarContainer}>
             <div className={styles.navButtons}>
-              <Link to="/home"><button>Home</button></Link>
+              <Link to="/home"><button >Home</button></Link>
               <Link to="/create"><button>Create</button></Link>
             </div>
             <SearchBar />

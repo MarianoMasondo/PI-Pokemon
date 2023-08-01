@@ -1,23 +1,13 @@
 .homeContainer {
-  /* min-height: 100vh; */
   width: 100%;
+  height: 680px; /* Set a fixed height for the home container */
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: #F4F2DE;
+  background-image: url("https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/3e6a7f41-3134-45c9-9eb2-35691a0f3484/d8up80a-48ea8388-be27-4911-8c30-5ef7459c454f.jpg/v1/fill/w_1024,h_576,q_75,strp/charizard____by_dark_indigo_d8up80a-fullview.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9NTc2IiwicGF0aCI6IlwvZlwvM2U2YTdmNDEtMzEzNC00NWM5LTllYjItMzU2OTFhMGYzNDg0XC9kOHVwODBhLTQ4ZWE4Mzg4LWJlMjctNDkxMS04YzMwLTVlZjc0NTljNDU0Zi5qcGciLCJ3aWR0aCI6Ijw9MTAyNCJ9XV0sImF1ZCI6WyJ1cm46c2VydmljZTppbWFnZS5vcGVyYXRpb25zIl19.LdEKmkKPdEArbYmMHRtxrQtxkXuf_LJ4RCIM527oazg");
   background-size: cover;
+  background-position: center;
 }
-  
-  /* .headerContainer {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #7C9D96;
-    background-color: #F4F2DE;
-    width: 100%;
-    height: 50px;
-  } */
-  
   
   .cardContainer {
     align-items: center;
@@ -28,3 +18,4 @@
     gap: 2em;
     padding: 40px;
   }
+  

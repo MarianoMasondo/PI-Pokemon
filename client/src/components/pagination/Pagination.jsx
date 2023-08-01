@@ -11,17 +11,20 @@ const Pagination = ({ currentPage, pokemonsPerPage, allPokemons, paginate }) => 
 
   return (
     <nav className={styles.paginationContainer}>
-      {pages.map((page) => (
-        <button
-          key={page}
-          onClick={() => paginate(page)}
-          className={currentPage === page ? styles.active : ""}
-        >
-          {page}
-        </button>
-      ))}
+      <div className={styles.paginationButtons}>
+        {pages.map((page) => (
+          <button
+            key={page}
+            onClick={() => paginate(page)}
+            className={currentPage === page ? styles.active : ""}
+          >
+            {page}
+          </button>
+        ))}
+      </div>
     </nav>
   );
 };
 
 export default Pagination;
+

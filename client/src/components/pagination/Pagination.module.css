@@ -2,26 +2,32 @@
   margin: 14px;
 }
 
-.paginationContainer button {
+.paginationButtons {
+  position: relative;  
+  bottom: 20px;
+}
+
+.paginationButtons button {
   margin-right: 8px;
   padding: 10px 15px;
   border-radius: 10%;
   cursor: pointer;
-  color: #F4F2DE; /* Color de número rojo */
+  color: #7C9D96; /* Color de número rojo */
   background-color: #A1CCD1; /* Color de fondo amarillo */
   border: 1px solid #7C9D96; /* Borde rojo */
 }
 
-.paginationContainer button:hover {
+.paginationButtons button:hover {
   background-color: #7C9D96; /* Cambiar fondo al hacer hover */
   color: #F4F2DE; /* Cambiar color de número al hacer hover */
 }
 
-.paginationContainer button:active {
+.paginationButtons button:active {
   transform: scale(0.9);
 }
 
-.paginationContainer button.active {
+.paginationButtons button.active {
   background-color: #7C9D96;
   color: #F4F2DE;
 }
+

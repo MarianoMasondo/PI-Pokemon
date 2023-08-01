@@ -258,7 +258,7 @@ const FormPage = () => {
         )}
 
 <section>
-      <h6>Select Types</h6>
+      <h3>Select Types</h3>
       <div className={styles.typesContainerCreate}>           
             <select
               className={styles.selectButon}

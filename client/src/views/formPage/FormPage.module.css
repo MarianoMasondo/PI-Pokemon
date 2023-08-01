@@ -4,103 +4,120 @@
   align-items: center;
   justify-content: center;
   height: 100vh;
-  background-color: #F4F2DE ;
-  /* background-image: url("https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/7efdaf9e-1f66-42ce-ae5a-77307f45243c/d5nc329-35dfaffd-dbd8-4dd4-94a5-5bcf2df4ab89.jpg/v1/fill/w_1048,h_762,q_70,strp/pokemon_wallpaper__gotta_catch__em_all_by_k_u_r_o_m_i_z_u_d5nc329-pre.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9OTMxIiwicGF0aCI6IlwvZlwvN2VmZGFmOWUtMWY2Ni00MmNlLWFlNWEtNzczMDdmNDUyNDNjXC9kNW5jMzI5LTM1ZGZhZmZkLWRiZDgtNGRkNC05NGE1LTViY2YyZGY0YWI4OS5qcGciLCJ3aWR0aCI6Ijw9MTI4MCJ9XV0sImF1ZCI6WyJ1cm46c2VydmljZTppbWFnZS5vcGVyYXRpb25zIl19.o8CiGoWpRYgPselFmjvzAaGM9Ww2hJDYeDMX6po1_eg"); */
+  /* background-color: #F4F2DE ; */
+  background-image: url("https://picstatio.com/large/nzzi06/pokemon-minimalism-wallpaper.png");
   background-size: cover;
+  transform: scaleX(-1);
 }
 
 .form {
-  background-color: #7C9D96; /* Cambia este valor a azul (#0000FF) */
+  background-color: #7C9D96;
   border-radius: 20px;
   box-sizing: border-box;
-  height: 500px;
-  padding: 30px;
-  width: 320px;
+  height: 600px;
+  width: 450px;
+  padding: 20px;
   position: relative;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-top: -100px;
+  margin-top: 0; /* Adjust this value to move the form up or down */
+  /* Mueve el formulario hacia la izquierda */
+  margin-right: 530px;
+  transform: scaleX(-1);
 }
-  
-  .title {
-    color: #A1CCD1;
-    font-family: sans-serif;
-    font-size: 36px;
-    font-weight: 600;
-    text-align: center;
-  }
-  
-  .inputContainer {
-    padding: 10px;
-    height: 25px;
-    position: relative;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 20px; /* Agrega esta línea para hacer los inputs redondeados */
-  }
-  
 
-  .typesContainerCreate {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  /* Styles for the selected types */
-  .selected {
-    display: flex;
-    flex-wrap: wrap;
-  }
-  
-  .typeSpan {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #3a3d53;
-    border-radius: 20px;
-    padding: 10px ;
-    margin-right: 4px;
-    color: #eee;
-  }
-  
-  .deleteBtn {
-    background-color: #dc3545;
-    border: none;
-    border-radius: 50%;
-    color: #eee;
-    cursor: pointer;
-    font-size: 12px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-left: 8px;
-    width: 15px;
-    height: 15px;
-  }
-  .submit {
-    background-color: #E9B384;
-    border-radius: 12px;
-    border: 0;
-    box-sizing: border-box;
-    color: #eee;
-    cursor: pointer;
-    font-size: 18px;
-    height: 60px;
-    margin-top: 20px;
-    text-align: center;
-    width: 100%;
-  }
-  
-  .submit:active {
-    background-color: #A1CCD1;
-    color: #F4F2DE;
-  }
+.title {
+  color: #F4F2DE;
+  font-family: sans-serif;
+  font-size: 36px;
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: 20px; /* Add margin to separate title from inputContainer */
+}
 
-  .error-message {
-    color: hsl(9, 92%, 50%);
-    animation: blink 1s infinite;
-  }
+.inputContainer {
+  margin-top: 20px;
+  padding: 10px;
+  height: 25px;
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 20px; /* Agrega esta línea para hacer los inputs redondeados */
+}
+
+.typesContainerCreate {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 5px; /* Add margin to separate typesContainerCreate from inputContainer */
+}
+
+h3 {
+  margin-top: 10px;
+  color: red;
+}
+
+/* Styles for the selected types */
+.selected {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 10px; /* Add margin to separate .selected from h6 */
+}
+
+.typeSpan {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #3a3d53;
+  border-radius: 20px;
+  padding: 10px;
+  margin-right: 4px;
+  color: #eee;
+  width: 100px;
+  height: 30px;
+}
+
+.deleteBtn {
+  background-color: #dc3545;
+  border: none;
+  border-radius: 50%;
+  color: #eee;
+  cursor: pointer;
+  font-size: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 8px;
+  width: 15px;
+  height: 15px;
+}
+
+.submit {
+  background-color: #E9B384;
+  border-radius: 12px;
+  border: 0;
+  box-sizing: border-box;
+  color: #eee;
+  cursor: pointer;
+  font-size: 18px;
+  height: 60px;
+  margin-top: auto; /* Change to 'auto' to push the button near the bottom */
+  text-align: center;
+  width: 100%;
+  margin-bottom: 20px; /* Add margin at the bottom to separate the button from the typesContainerCreate */
+}
+
+.submit:active {
+  background-color: #A1CCD1;
+  color: #F4F2DE;
+}
+
+.error-message {
+  color: hsl(9, 92%, 50%);
+  animation: blink 1s infinite;
+}
+
