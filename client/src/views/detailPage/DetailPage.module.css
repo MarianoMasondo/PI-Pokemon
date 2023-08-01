@@ -1,5 +1,5 @@
 .detailContainer {
-  background-color: #F0DE36;
+  background-image: url("https://cdn.wallpapersafari.com/0/52/7t85ML.jpg");
   display: flex;
   flex-direction: column;
   padding: 5px; 
@@ -12,22 +12,38 @@
 }
 
 .image {
-  width: 200px;
-  height: 200px;
-  border-radius: 50%;
-  background-color: white;
+  width: 100%;
+  height: 300px;
+  border-radius: 20%;
+  background-color: rgb(252, 253, 248);
   display: flex;
   justify-content: center;
   align-items: center;
   overflow: hidden;
 }
 
-.characteristics {
-  color: #0D1282;
-  margin: 0px;
-  text-align: center;
-  border: 1px solid black;
+.h3characteristics {
+  color: #ffff00;
+  margin-bottom: 5px; /* Añadir un margen inferior de 5px para separarlo del siguiente elemento */
 }
+
+.characteristics {
+  width: 50%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  color: yellow;
+  text-align: center;
+  margin-top: 5px; /* Añadir un margen superior de 5px para separarlo del elemento anterior */
+  padding: 0; /* Eliminar el padding para acercarlo más al elemento anterior */
+}
+
+
+.left-column,
+.right-column {
+  width: calc(50% - 10px); /* Split the container into two columns with 10px spacing */
+}
+
 
 .h1 {
   text-align: center;

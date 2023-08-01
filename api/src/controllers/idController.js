@@ -9,7 +9,7 @@ const idDataPokemon = async (id) => {
     const idData = {
       id: data.id,
       name: data.name,
-      image: data.sprites.other["official-artwork"].front_default,
+      image: data.sprites.other["home"].front_default,
       hp: data.stats.find((element) => element.stat.name === "hp").base_stat,
       attack: data.stats.find((element) => element.stat.name === "attack")
         .base_stat,

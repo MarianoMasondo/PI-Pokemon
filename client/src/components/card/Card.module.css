@@ -1,19 +1,18 @@
 .container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    
-  }
-  
-  .card_box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card_box {
   width: 200px;
   height: 250px;
   border-radius: 20px;
   background: linear-gradient(
     170deg,
-    rgb(250, 250, 250) 0%,
-    rgb(245, 197, 197) 50%,
-    rgb(247, 8, 8) 100%
+    rgb(187, 183, 245) 0%,
+    rgb(108, 122, 243) 50%,
+    rgb(14, 55, 236) 100%
   );
   position: relative;
   box-shadow: 0 25px 50px rgba(0, 0, 0, 0.55);
@@ -23,66 +22,68 @@
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  }
-  
-  .card_box:hover {
-    transform: scale(0.9);
-  }
-  
-  .card_box span {
-    position: absolute;
-    overflow: hidden;
-    width: 150px;
-    height: 150px;
-    top: -10px;
-    left: -10px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  
-  .card_box span::before {
-    content: 'Premium';
-    position: absolute;
-    width: 150%;
-    height: 40px;
-    background-image: linear-gradient(45deg, #ff6547 0%, #ffb144  51%, #ff7053  100%);
-    transform: rotate(-45deg) translateY(-20px);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #fff;
-    font-weight: 600;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    box-shadow: 0 5px 10px rgba(0,0,0,0.23);
-  }
-  
-  .card_box span::after {
-    content: '';
-    position: absolute;
-    width: 10px;
-    bottom: 0;
-    left: 0;
-    height: 10px;
-    z-index: -1;
-    box-shadow: 140px -140px #cc3f47;
-    background-image: linear-gradient(45deg, #FF512F 0%, #F09819  51%, #FF512F  100%);
-  }
-  .cardContainer img {
-    width: 200px; 
-    height: 150px; 
-    border: 2px solid #0D1282; /* Puedes ajustar el tamaño y el color del borde aquí */
-  }
+}
 
-.cardContainer h1{
+.card_box:hover {
+  transform: scale(0.9);
+}
+
+.card_box span {
+  position: absolute;
+  overflow: hidden;
+  width: 150px;
+  height: 150px;
+  top: -10px;
+  left: -10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card_box span::before {
+  content: 'Premium';
+  position: absolute;
+  width: 150%;
+  height: 40px;
+  background-image: linear-gradient(45deg, #ff6547 0%, #ffb144  51%, #ff7053  100%);
+  transform: rotate(-45deg) translateY(-20px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  box-shadow: 0 5px 10px rgba(0,0,0,0.23);
+}
+
+.card_box span::after {
+  content: '';
+  position: absolute;
+  width: 10px;
+  bottom: 0;
+  left: 0;
+  height: 10px;
+  z-index: -1;
+  box-shadow: 140px -140px #cc3f47;
+  background-image: linear-gradient(45deg, #FF512F 0%, #F09819  51%, #FF512F  100%);
+}
+
+.cardContainer img {
+  width: 150px;
+  height: 150px;
+  border-radius: 10px 10px 0 0;
+  margin-top: -20px; /* Adjust this value to move the image closer to the h1 */
+}
+
+.cardContainer h1 {
   text-align: center;
   font-family: sans-serif;
   color: #D71313;
-  margin: 10px 0;
+  margin: 10px;
 }
 
-.cardContainer h3{
+.cardContainer h3 {
   text-align: center;
   font-family: sans-serif;
   color: #0D1282;
