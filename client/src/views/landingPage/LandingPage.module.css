@@ -1,43 +1,45 @@
-/* LandingPage.module.css */
 .landingContainer {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100vh; /* Establece la altura completa de la pantalla */
-    background-image: url("https://top-mmo.fr/wp-content/uploads/2022/04/pokemon-ash-ketchum-1.jpg");
-    background-size: cover;
-    position: relative;
-  }
-  
-  /* Opcional: estilos adicionales para el título y el botón */
-  .landingContainer h1 {
-    color: #F0DE36;
-    font-size: 1rem;
-    position: absolute;
-    top: 3px; 
-  }
-  
-  .landingContainer button {
-    padding: 1rem 2rem;
-    font-size: 1.2rem;
-  }
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh; /* Establece la altura completa de la pantalla */
+  background-image: url("https://top-mmo.fr/wp-content/uploads/2022/04/pokemon-ash-ketchum-1.jpg");
+  background-size: cover;
+  position: relative;
+}
 
-  *, *:before, *:after {
+.landingContainer h1 {
+  color: #f0de36;
+  font-size: 1rem;
+  position: absolute;
+  top: 3px;
+}
+
+.landingContainer button {
+  padding: 1rem 2rem;
+  font-size: 1.2rem;
+}
+
+*,
+*:before,
+*:after {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
+
 body {
   background: #ecf0f1;
 }
+
 .center-on-page {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%,-50%);
+  transform: translate(-50%, -50%);
 }
-/* Poké Styles */
+
 .pokeball {
   position: relative;
   top: 100%;
@@ -48,25 +50,29 @@ body {
   border-radius: 50%;
   overflow: hidden;
   box-shadow: inset -10px 10px 0 10px #ccc;
-  animation: fall .25s ease-in-out,
-             shake 1.25s cubic-bezier(.36,.07,.19,.97) infinite;
+  animation: fall 0.25s ease-in-out,
+    shake 1.25s cubic-bezier(0.36, 0.07, 0.19, 0.97) infinite;
 }
+
 .pokeball::before,
 .pokeball::after {
-  content:"";
+  content: "";
   position: absolute;
 }
+
 .pokeball::before {
   background: red;
   width: 100%;
   height: 50%;
 }
+
 .pokeball::after {
   top: calc(50% - 10px);
   width: 100%;
   height: 20px;
   background: #000;
 }
+
 .pokeball__button {
   position: absolute;
   top: calc(50% - 30px);
@@ -78,13 +84,12 @@ body {
   border-radius: 50%;
   z-index: 10;
   box-shadow: 0 0 0 10px black;
-  animation: blink .7s alternate infinite;
+  animation: blink 0.7s alternate infinite;
   display: flex;
   align-items: center;
   justify-content: center;
   color: #000;
   cursor: pointer;
-
 }
 
 .centered-text {
@@ -99,7 +104,7 @@ body {
 
 @keyframes colorChange {
   from {
-    color: #F0DE36; /* Color inicial del texto */
+    color: #f0de36; /* Color inicial del texto */
   }
   to {
     color: #e74c3c; /* Color final del texto */
@@ -107,22 +112,47 @@ body {
 }
 /* Animation */
 @keyframes blink {
-  from { background: #eee; color: #000; } /* Establece los valores iniciales para fondo (blanco) y texto (negro) */
-  to { background: #e74c3c; color: #fff; } /* Establece los valores finales para fondo (rojo) y texto (blanco) */
+  from {
+    background: #eee;
+    color: #000;
+  } /* Establece los valores iniciales para fondo (blanco) y texto (negro) */
+  to {
+    background: #e74c3c;
+    color: #fff;
+  } /* Establece los valores finales para fondo (rojo) y texto (blanco) */
 }
 
 @keyframes shake {
-  0% { transform: translate(0, 0) rotate(0); }
-  20% { transform: translate(-10px, 0) rotate(-20deg); }
-  30% { transform: translate(10px, 0) rotate(20deg); }
-  50% { transform: translate(-10px, 0) rotate(-10deg); }
-  60% { transform: translate(10px, 0) rotate(10deg); }
-  100% { transform: translate(0, 0) rotate(0); }
+  0% {
+    transform: translate(0, 0) rotate(0);
+  }
+  20% {
+    transform: translate(-10px, 0) rotate(-20deg);
+  }
+  30% {
+    transform: translate(10px, 0) rotate(20deg);
+  }
+  50% {
+    transform: translate(-10px, 0) rotate(-10deg);
+  }
+  60% {
+    transform: translate(10px, 0) rotate(10deg);
+  }
+  100% {
+    transform: translate(0, 0) rotate(0);
+  }
 }
 @keyframes fall {
-  0% { top: -200px }
-  60% { top: 0 }
-  80% { top: -20px }
-  100% { top: 0 }
+  0% {
+    top: -200px;
+  }
+  60% {
+    top: 0;
+  }
+  80% {
+    top: -20px;
+  }
+  100% {
+    top: 0;
+  }
 }
-  

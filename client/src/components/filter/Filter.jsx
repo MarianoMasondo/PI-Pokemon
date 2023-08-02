@@ -1,6 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { allTypes, filterApiDb, filterType, getPokemons } from "../../redux/actions";
+import {
+  allTypes,
+  filterApiDb,
+  filterType,
+  getPokemons,
+} from "../../redux/actions";
 import styles from "./Filter.module.css";
 
 const TypeFilter = () => {
@@ -16,8 +21,7 @@ const TypeFilter = () => {
     const selectedValue = e.target.value;
     setSelectedType(selectedValue);
     if (e.target.value === "default") {
-      // Reset the value to the default option ("Filter by type")
-      dispatch(getPokemons()) // Assuming you need to dispatch this action
+      dispatch(getPokemons());
     } else {
       dispatch(filterType(selectedValue));
     }
@@ -30,7 +34,7 @@ const TypeFilter = () => {
 
   return (
     <div className={styles.filterContainer}>
-      <div >
+      <div>
         <select onChange={(e) => handleFilter(e)} value={selectedType}>
           <option value="default">Filter by type</option>
           {types?.map((type) => (
@@ -72,9 +76,7 @@ const TypeFilter = () => {
         </label>
       </div>
     </div>
-
   );
 };
 
 export default TypeFilter;
-

@@ -1,10 +1,10 @@
 .detailContainer {
-  background: #F4F2DE;
+  background: #f4f2de;
   height: 720px;
   display: flex;
   flex-direction: column;
   padding: 5px;
-  color: #A1CCD1;
+  color: #a1ccd1;
   width: 100%;
   align-items: center;
 }
@@ -39,7 +39,6 @@
 .left-column,
 .middle-column,
 .right-column {
-  /* Ajustar el ancho de las columnas */
   flex: 5;
   margin: 2px;
 }
@@ -54,7 +53,7 @@
 }
 
 .card {
-  background: linear-gradient(170deg, #A1CCD1 0%, #7C9D96 100%);
+  background: linear-gradient(170deg, #a1ccd1 0%, #7c9d96 100%);
   padding: 10px;
   width: 450px;
   height: 600px;
@@ -66,19 +65,19 @@
 }
 
 button {
-  color: #E9B384;
-  background: #F4F2DE;
+  color: #e9b384;
+  background: #f4f2de;
   font-family: inherit;
   padding: 0.6em 1.3em;
   font-weight: 900;
   font-size: 18px;
-  border: 3px solid #E9B384;
+  border: 3px solid #e9b384;
   border-radius: 0.4em;
   box-shadow: 0.1em 0.1em;
 }
 
 .card button:hover {
-  color: #E9B384;
+  color: #e9b384;
   transform: translate(-0.05em, -0.05em);
   box-shadow: 0.15em 0.15em;
 }
@@ -87,7 +86,3 @@ button {
   transform: translate(0.05em, 0.05em);
   box-shadow: 0.05em 0.05em;
 }
-
-
-
-

@@ -1,32 +1,31 @@
 .navBarContainer {
   display: flex;
-  align-items: center; /* Opcional: alinea verticalmente los elementos en el centro */
-  justify-content: space-between; /* Distribuye los elementos horizontalmente */
-  background-color: #A1CCD1;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #a1ccd1;
   padding: 10px;
 }
 
 .navButtons {
-  display: flex; /* Para que los botones estén en línea */
+  display: flex;
   margin-left: 60px;
   gap: 1em;
-
 }
 
 button {
-  color: #E9B384;
-  background: #F4F2DE;
+  color: #e9b384;
+  background: #f4f2de;
   font-family: inherit;
   padding: 0.6em 1.3em;
   font-weight: 900;
   font-size: 18px;
-  border: 3px solid #E9B384;
+  border: 3px solid #e9b384;
   border-radius: 0.4em;
   box-shadow: 0.1em 0.1em;
 }
 
 button:hover {
-  color: #F4F2DE;
+  color: #f4f2de;
   transform: translate(-0.05em, -0.05em);
   box-shadow: 0.15em 0.15em;
 }
@@ -37,7 +36,7 @@ button:active {
 }
 
 .navButtons button:hover {
-  background-color: #E9B384;
+  background-color: #e9b384;
 }
 
 .logoContainer {
@@ -46,6 +45,6 @@ button:active {
   margin: 0 auto;
 }
 
-.searchBarContainer{
+.searchBarContainer {
   margin-right: 60px;
 }

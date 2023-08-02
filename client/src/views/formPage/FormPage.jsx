@@ -2,10 +2,9 @@ import React, { useEffect, useState } from "react";
 import styles from "./FormPage.module.css";
 import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
-import { addPokemonToDb, allTypes } from "../../redux/actions";
+import { allTypes } from "../../redux/actions";
 
 const validate = (form) => {
-  
   let errors = {};
   if (!form.name) {
     errors.name = "Please insert a valid name!";
@@ -70,7 +69,6 @@ const FormPage = () => {
         .post("http://localhost:3001/pokemons", form)
         .then((res) => {
           alert("Pokemon created successfully");
-          dispatch(addPokemonToDb(res.data));
           setForm({
             name: "",
             image: "",
@@ -80,7 +78,7 @@ const FormPage = () => {
             speed: "",
             height: "",
             weight: "",
-            types: [], // Clear the types array
+            types: [],
           });
           setErrors({
             name: false,
@@ -101,7 +99,6 @@ const FormPage = () => {
       setErrors(formErrors);
     }
   };
-  
 
   const handleInputChange = (e) => {
     setForm({
@@ -121,7 +118,6 @@ const FormPage = () => {
     dispatch(allTypes());
   }, [dispatch]);
 
-
   const handleDelete = (type) => {
     setForm({
       ...form,
@@ -129,10 +125,10 @@ const FormPage = () => {
     });
   };
 
-
   const handleSelect = (e) => {
     const selected = e.target.value;
-    if (form.types.length >= 2) return alert("Cannot choose more than two types");
+    if (form.types.length >= 2)
+      return alert("Cannot choose more than two types");
     if (!form.types.includes(selected)) {
       setForm({
         ...form,
@@ -140,15 +136,16 @@ const FormPage = () => {
       });
     }
   };
-  
 
   return (
     <div className={styles.formContainer}>
       <form onSubmit={(e) => handleSubmit(e)} className={styles.form}>
-      <h1 className={styles.title}>Create your Pokemon</h1>
+        <h1 className={styles.title}>Create your Pokemon</h1>
         <section>
           <input
-            className={`${styles.inputContainer} ${errors.name ? styles.error : ""}`}
+            className={`${styles.inputContainer} ${
+              errors.name ? styles.error : ""
+            }`}
             placeholder={errors.name ? errors.name : "Name here..."}
             type="text"
             name="name"
@@ -159,7 +156,9 @@ const FormPage = () => {
 
         <section>
           <input
-            className={`${styles.inputContainer} ${errors.name ? styles.error : ""}`}
+            className={`${styles.inputContainer} ${
+              errors.name ? styles.error : ""
+            }`}
             placeholder={errors.image ? errors.image : "Image link here..."}
             type="url"
             name="image"
@@ -170,7 +169,9 @@ const FormPage = () => {
 
         <section>
           <input
-            className={`${styles.inputContainer} ${errors.name ? styles.error : ""}`}
+            className={`${styles.inputContainer} ${
+              errors.name ? styles.error : ""
+            }`}
             placeholder={errors.hp ? errors.hp : "Hp here..."}
             type="text"
             name="hp"
@@ -181,7 +182,9 @@ const FormPage = () => {
 
         <section>
           <input
-            className={`${styles.inputContainer} ${errors.name ? styles.error : ""}`}
+            className={`${styles.inputContainer} ${
+              errors.name ? styles.error : ""
+            }`}
             placeholder={errors.attack ? errors.attack : "Attack here..."}
             type="text"
             name="attack"
@@ -192,7 +195,9 @@ const FormPage = () => {
 
         <section>
           <input
-            className={`${styles.inputContainer} ${errors.name ? styles.error : ""}`}
+            className={`${styles.inputContainer} ${
+              errors.name ? styles.error : ""
+            }`}
             placeholder={errors.attack ? errors.attack : "Defense here..."}
             type="text"
             name="defense"
@@ -203,7 +208,9 @@ const FormPage = () => {
 
         <section>
           <input
-            className={`${styles.inputContainer} ${errors.name ? styles.error : ""}`}
+            className={`${styles.inputContainer} ${
+              errors.name ? styles.error : ""
+            }`}
             placeholder={errors.attack ? errors.speed : "Speed here..."}
             type="text"
             name="speed"
@@ -214,7 +221,9 @@ const FormPage = () => {
 
         <section>
           <input
-            className={`${styles.inputContainer} ${errors.name ? styles.error : ""}`}
+            className={`${styles.inputContainer} ${
+              errors.name ? styles.error : ""
+            }`}
             placeholder={errors.attack ? errors.height : "Height here..."}
             type="text"
             name="height"
@@ -225,7 +234,9 @@ const FormPage = () => {
 
         <section>
           <input
-            className={`${styles.inputContainer} ${errors.name ? styles.error : ""}`}
+            className={`${styles.inputContainer} ${
+              errors.name ? styles.error : ""
+            }`}
             placeholder={errors.attack ? errors.weight : "Weight here..."}
             type="text"
             name="weight"
@@ -234,9 +245,9 @@ const FormPage = () => {
           />
         </section>
 
-<section>
-      <h3>Select Types</h3>
-      <div className={styles.typesContainerCreate} >           
+        <section>
+          <h3>Select Types</h3>
+          <div className={styles.typesContainerCreate}>
             <select
               className={`${styles.select} ${errors.name ? styles.error : ""}`}
               name="type"
@@ -266,9 +277,11 @@ const FormPage = () => {
               );
             })}
           </div>
-</section>
+        </section>
 
-        <button className={styles.submit} type="text">Create Pokemon</button>
+        <button className={styles.submit} type="text">
+          Create Pokemon
+        </button>
       </form>
     </div>
   );

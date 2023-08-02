@@ -1,15 +1,15 @@
 import React from "react";
 import Card from "../card/Card";
-import  styles from "./Cards.module.css";
+import styles from "./Cards.module.css";
 import { useSelector } from "react-redux";
 
 const Cards = () => {
-
-    const pokemons = useSelector(state=>state.pokemons)
-    return(
-        <div className={styles.cardsContainer}>
-            {pokemons.map((pokemon) => {
-                return <Card
+  const pokemons = useSelector((state) => state.pokemons);
+  return (
+    <div className={styles.cardsContainer}>
+      {pokemons.map((pokemon) => {
+        return (
+          <Card
             key={pokemon.id}
             id={pokemon.id}
             name={pokemon.name}
@@ -22,10 +22,11 @@ const Cards = () => {
             weight={pokemon.weight}
             types={pokemon.types}
             createDb={pokemon.createDb}
-            />
-        })}
-        </div>
-    )
-}
+          />
+        );
+      })}
+    </div>
+  );
+};
 
 export default Cards;

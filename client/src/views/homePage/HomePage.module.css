@@ -4,26 +4,24 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: #F4F2DE;
+  background-color: #f4f2de;
   background-size: cover;
-  
 }
-  
-  .cardContainer {
-    align-items: center;
-    justify-content: center;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    gap: 2em;
-    padding: 40px;    
-  }
 
-  .filterContainer {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    gap: 3px; /* Esto agrega un espacio entre los dos componentes */
+.cardContainer {
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 2em;
+  padding: 40px;
 }
-  
+
+.filterContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+}

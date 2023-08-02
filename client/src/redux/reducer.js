@@ -7,8 +7,6 @@ import {
   ORDER_POKEMON_ATTACK,
   SEARCH_POKEMON,
   SORT_POKEMONS_ASC_DESC,
-  ADD_POKEMON_TO_DB,
-  
 } from "./actions";
 
 const initialState = {
@@ -18,7 +16,6 @@ const initialState = {
   searchPokemon: [],
   types: [],
   pokemonApiDb: [],
-  
 };
 
 const reducer = (state = initialState, action) => {
@@ -54,33 +51,24 @@ const reducer = (state = initialState, action) => {
         action.payload === "all"
           ? pokemonCopy
           : pokemonCopy.filter(
-              (pokemon) => pokemon.types && pokemon.types.includes(action.payload)
+              (pokemon) =>
+                pokemon.types && pokemon.types.includes(action.payload)
             );
       return {
         ...state,
         pokemons: pokemonTypes,
       };
 
-      case FILTER_APIDB:
-        const apiDbCopy = [...state.pokemonsCopy];
-        console.log("apiDbCopy:", apiDbCopy);
-        const pokemonApiDb =
-          action.payload === "database"
-            ? apiDbCopy.filter((pokemon) => pokemon.createDb)
-            : apiDbCopy.filter((pokemon) => !pokemon.createDb);
-            console.log("pokemonApiDb:", pokemonApiDb);
-            console.log("action.payload:", action.payload);
-        return {
-          ...state,
-          pokemons: action.payload === "all" ? apiDbCopy : pokemonApiDb,
-        };
-
-        case ADD_POKEMON_TO_DB:
+    case FILTER_APIDB:
+      const apiDbCopy = state.pokemonsCopy;
+      const pokemonApiDb =
+        action.payload === "database"
+          ? apiDbCopy.filter((pokemon) => pokemon.createDb)
+          : apiDbCopy.filter((pokemon) => !pokemon.createDb);
       return {
         ...state,
-        pokemonApiDb: [...state.pokemonApiDb, action.payload],
+        pokemons: action.payload === "all" ? apiDbCopy : pokemonApiDb,
       };
-      
 
     case SORT_POKEMONS_ASC_DESC:
       let pokemonsSort = [...state.pokemons];

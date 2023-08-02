@@ -10,7 +10,6 @@ const Card = ({ name, image, types, id, attack }) => {
     return str.charAt(0).toUpperCase() + str.slice(1);
   };
 
-  // Verificar si 'types' es un array y tiene al menos un elemento
   const capitalizedTypes =
     Array.isArray(types) && types.length > 0
       ? types.map((type) => capitalize(type))
@@ -21,9 +20,9 @@ const Card = ({ name, image, types, id, attack }) => {
       <NavLink to={`/detail/${id}`} style={{ textDecoration: "none" }}>
         <div className={styles.card_box}>
           <h1>{capitalize(name)}</h1>
-          <img src={image} alt="" />
-          <h3>{capitalizedTypes.join(", ")}</h3>
-          {attack}
+          <img className={styles.cardImage} src={image} alt="" />
+          <h3>{capitalizedTypes.join(", ")}</h3> {/* Render types */}
+          <p>{attack}</p>
         </div>
       </NavLink>
     </div>

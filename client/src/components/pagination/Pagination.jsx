@@ -1,7 +1,12 @@
 import React from "react";
 import styles from "./Pagination.module.css";
 
-const Pagination = ({ currentPage, pokemonsPerPage, allPokemons, paginate }) => {
+const Pagination = ({
+  currentPage,
+  pokemonsPerPage,
+  allPokemons,
+  paginate,
+}) => {
   const totalPages = Math.ceil(allPokemons.length / pokemonsPerPage);
 
   const pages = [];
@@ -27,4 +32,3 @@ const Pagination = ({ currentPage, pokemonsPerPage, allPokemons, paginate }) => 
 };
 
 export default Pagination;
-

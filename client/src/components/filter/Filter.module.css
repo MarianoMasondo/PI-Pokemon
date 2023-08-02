@@ -1,7 +1,6 @@
 .filterContainer {
   display: flex;
-  flex-direction: row; /* Por defecto, flexbox coloca los elementos en una fila */
-  align-items: center; /* Alinea verticalmente los elementos al centro */
+  flex-direction: row;
+  align-items: center;
   gap: 4px;
-  
 }

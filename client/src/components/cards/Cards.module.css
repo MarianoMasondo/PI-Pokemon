@@ -1,12 +1,11 @@
-.cardsContainer 
-{
-    align-items: center;
-    justify-content: center;
-    border: 1px solid black;
-    display: flex;
-    flex-direction: row;
-    border-radius: 15px;
-    flex-wrap: wrap;
-    gap: 2em;
-    padding: 25px;
-  }
+.cardsContainer {
+  align-items: center;
+  justify-content: center;
+  border: 3px solid black;
+  display: flex;
+  flex-direction: row;
+  border-radius: 15px;
+  flex-wrap: wrap;
+  gap: 2em;
+  padding: 25px;
+}

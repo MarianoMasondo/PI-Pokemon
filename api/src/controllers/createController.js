@@ -49,7 +49,6 @@ const createPokemons = async ({
   });
 
   return pokemonRelation;
-  
 };
 
 module.exports = createPokemons;

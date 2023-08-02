@@ -3,7 +3,7 @@
 }
 
 .paginationButtons {
-  position: relative;  
+  position: relative;
   bottom: 20px;
 }
 
@@ -12,14 +12,14 @@
   padding: 10px 15px;
   border-radius: 10%;
   cursor: pointer;
-  color: #7C9D96; /* Color de número rojo */
-  background-color: #A1CCD1; /* Color de fondo amarillo */
-  border: 1px solid #7C9D96; /* Borde rojo */
+  color: #7c9d96; /* Color de número rojo */
+  background-color: #a1ccd1; /* Color de fondo amarillo */
+  border: 1px solid #7c9d96; /* Borde rojo */
 }
 
 .paginationButtons button:hover {
-  background-color: #7C9D96; /* Cambiar fondo al hacer hover */
-  color: #F4F2DE; /* Cambiar color de número al hacer hover */
+  background-color: #7c9d96; /* Cambiar fondo al hacer hover */
+  color: #f4f2de; /* Cambiar color de número al hacer hover */
 }
 
 .paginationButtons button:active {
@@ -27,7 +27,6 @@
 }
 
 .paginationButtons button.active {
-  background-color: #7C9D96;
-  color: #F4F2DE;
+  background-color: #7c9d96;
+  color: #f4f2de;
 }
-

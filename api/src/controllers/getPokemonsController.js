@@ -16,7 +16,7 @@ const allPokemons = async () => {
       return {
         id: pokemonData.id,
         name: pokemonData.name,
-        image: pokemonData.sprites.other["dream_world"].front_default,        
+        image: pokemonData.sprites.other["dream_world"].front_default,
         hp: pokemonData.stats[0].base_stat,
         attack: pokemonData.stats[1].base_stat,
         defense: pokemonData.stats[2].base_stat,
@@ -50,7 +50,8 @@ const allPokemons = async () => {
       speed,
       height,
       weight,
-      Type,
+      types,
+      createDb,
     }) => ({
       id: id,
       name: name,
@@ -61,7 +62,8 @@ const allPokemons = async () => {
       speed: speed,
       height: height,
       weight: weight,
-      Type: Type,
+      types: types.map((type) => type.name),
+      createDb,
     })
   );
 
