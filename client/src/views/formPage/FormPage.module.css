@@ -3,42 +3,34 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 100vh;
-  background-color: #A1CCD1 ;
-  /* background-image: url("https://picstatio.com/large/nzzi06/pokemon-minimalism-wallpaper.png"); */
-  background-size: cover;
-  transform: scaleX(-1);
+  height: 720px;
+  background-color: #F4F2DE;
 }
 
 .form {
   background-color: #7C9D96;
   border-radius: 20px;
   box-sizing: border-box;
-  height: 600px;
-  width: 450px;
-  padding: 20px;
-  position: relative;
+  height: 500px;
+  width: 350px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-top: 0; /* Adjust this value to move the form up or down */
-  /* Mueve el formulario hacia la izquierda */
-  margin-right: 530px;
-  transform: scaleX(-1);
+  margin-bottom: 100px;
 }
 
 .title {
-  color: #F4F2DE;
+  color: #E9B384;
   font-family: sans-serif;
-  font-size: 36px;
+  font-size: 35px;
   font-weight: 600;
   text-align: center;
-  margin-bottom: 20px; /* Add margin to separate title from inputContainer */
+  margin-bottom: 1px; /* Agrega margen para separar el título de inputContainer */
 }
 
 .inputContainer {
-  margin-top: 20px;
+  margin-top: 8px;
   padding: 10px;
   height: 25px;
   position: relative;
@@ -51,21 +43,25 @@
 
 .typesContainerCreate {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-top: 5px; /* Add margin to separate typesContainerCreate from inputContainer */
+  margin-top: 10px; /* Agrega margen para separar typesContainerCreate de inputContainer */
 }
 
 h3 {
-  margin-top: 10px;
-  color: red;
+  text-align: center;
+  margin-top: 5px;
+  margin-bottom: -5px;
+  color: #F4F2DE;
 }
+
 
 /* Styles for the selected types */
 .selected {
   display: flex;
   flex-wrap: wrap;
-  margin-top: 10px; /* Add margin to separate .selected from h6 */
+  margin-top: 3px; /* Agrega margen para separar .selected de h6 */
 }
 
 .typeSpan {
@@ -74,11 +70,11 @@ h3 {
   align-items: center;
   background-color: #3a3d53;
   border-radius: 20px;
-  padding: 10px;
+  padding: 5px;
   margin-right: 4px;
-  color: #eee;
+  color: #F4F2DE;
   width: 100px;
-  height: 30px;
+  height: 20px;
 }
 
 .deleteBtn {
@@ -92,8 +88,8 @@ h3 {
   justify-content: center;
   align-items: center;
   margin-left: 8px;
-  width: 15px;
-  height: 15px;
+  width: 10px;
+  height: 10px;
 }
 
 .submit {
@@ -101,23 +97,37 @@ h3 {
   border-radius: 12px;
   border: 0;
   box-sizing: border-box;
-  color: #eee;
+  color: #F4F2DE;
   cursor: pointer;
   font-size: 18px;
-  height: 60px;
-  margin-top: auto; /* Change to 'auto' to push the button near the bottom */
+  height: 45px;
+  margin-top: auto; /* Cambia a 'auto' para que el botón esté cerca del fondo */
   text-align: center;
-  width: 100%;
-  margin-bottom: 20px; /* Add margin at the bottom to separate the button from the typesContainerCreate */
+  width: 75%;
+  margin-bottom: 15px; /* Agrega margen inferior para separar el botón de typesContainerCreate */
 }
 
 .submit:active {
-  background-color: #A1CCD1;
-  color: #F4F2DE;
+  background-color: #F4F2DE;
+  color: #E9B384;
 }
 
 .error-message {
   color: hsl(9, 92%, 50%);
   animation: blink 1s infinite;
 }
+/* Agrega una clase de CSS para el estilo de error */
+.error {
+  animation: blink 1s infinite;
+  color: hsl(9, 92%, 50%);
+}
+@keyframes blink {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+
 

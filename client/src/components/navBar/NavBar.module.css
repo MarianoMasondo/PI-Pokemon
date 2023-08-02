@@ -2,7 +2,7 @@
   display: flex;
   align-items: center; /* Opcional: alinea verticalmente los elementos en el centro */
   justify-content: space-between; /* Distribuye los elementos horizontalmente */
-  background-color: #7C9D96;
+  background-color: #A1CCD1;
   padding: 10px;
 }
 
@@ -13,13 +13,13 @@
 }
 
 button {
-  color: #7C9D96;
+  color: #E9B384;
   background: #F4F2DE;
   font-family: inherit;
   padding: 0.6em 1.3em;
   font-weight: 900;
   font-size: 18px;
-  border: 3px solid #7C9D96;
+  border: 3px solid #E9B384;
   border-radius: 0.4em;
   box-shadow: 0.1em 0.1em;
 }
@@ -36,7 +36,7 @@ button:active {
 }
 
 .navButtons button:hover {
-  background-color: #A1CCD1;
+  background-color: #E9B384;
 }
 
 .logoContainer {

@@ -8,31 +8,31 @@ const validate = (form) => {
   
   let errors = {};
   if (!form.name) {
-    errors.name = "Please insert a valid name";
+    errors.name = "Please insert a valid name!";
   }
   if (!form.image) {
-    errors.image = "Please insert a valid image";
+    errors.image = "Please insert a valid image!";
   }
   if (!form.hp) {
-    errors.hp = "Please insert a valid hp";
+    errors.hp = "Please insert a valid hp!";
   }
   if (!form.attack) {
-    errors.attack = "Please insert a valid attack";
+    errors.attack = "Please insert a valid attack!";
   }
   if (!form.defense) {
-    errors.defense = "Please insert a valid defense";
+    errors.defense = "Please insert a valid defense!";
   }
   if (!form.speed) {
-    errors.speed = "Please insert a valid speed";
+    errors.speed = "Please insert a valid speed!";
   }
   if (!form.height) {
-    errors.height = "Please insert a valid height";
+    errors.height = "Please insert a valid height!";
   }
   if (!form.weight) {
-    errors.weight = "Please insert a valid weight";
+    errors.weight = "Please insert a valid weight!";
   }
   if (form.types.length === 0) {
-    errors.types = "Please select at least one type";
+    errors.types = "Please select at least one type!";
   }
   return errors;
 };
@@ -147,121 +147,97 @@ const FormPage = () => {
       <h1 className={styles.title}>Create your Pokemon</h1>
         <section>
           <input
-            className={styles.inputContainer}
-            placeholder="Name here..."
+            className={`${styles.inputContainer} ${errors.name ? styles.error : ""}`}
+            placeholder={errors.name ? errors.name : "Name here..."}
             type="text"
             name="name"
             value={form.name}
             onChange={handleInputChange}
           />
         </section>
-        {errors.name && (
-          <p className={styles["error-message"]}>{errors.name}</p>
-        )}
 
         <section>
           <input
-            className={styles.inputContainer}
-            placeholder="Image link here..."
+            className={`${styles.inputContainer} ${errors.name ? styles.error : ""}`}
+            placeholder={errors.image ? errors.image : "Image link here..."}
             type="url"
             name="image"
             value={form.image}
             onChange={handleInputChange}
           />
         </section>
-        {errors.image && (
-          <p className={styles["error-message"]}>{errors.image}</p>
-        )}
 
         <section>
           <input
-            className={styles.inputContainer}
-            placeholder="Hp here..."
+            className={`${styles.inputContainer} ${errors.name ? styles.error : ""}`}
+            placeholder={errors.hp ? errors.hp : "Hp here..."}
             type="text"
             name="hp"
             value={form.hp}
             onChange={handleInputChange}
           />
         </section>
-        {errors.hp && (
-          <p className={styles["error-message"]}>{errors.hp}</p>
-        )}
 
         <section>
           <input
-            className={styles.inputContainer}
-            placeholder="Attack here..."
+            className={`${styles.inputContainer} ${errors.name ? styles.error : ""}`}
+            placeholder={errors.attack ? errors.attack : "Attack here..."}
             type="text"
             name="attack"
             value={form.attack}
             onChange={handleInputChange}
           />
         </section>
-        {errors.attack && (
-          <p className={styles["error-message"]}>{errors.attack}</p>
-        )}
 
         <section>
           <input
-            className={styles.inputContainer}
-            placeholder="Defense here..."
+            className={`${styles.inputContainer} ${errors.name ? styles.error : ""}`}
+            placeholder={errors.attack ? errors.attack : "Defense here..."}
             type="text"
             name="defense"
             value={form.defense}
             onChange={handleInputChange}
           />
         </section>
-        {errors.defense && (
-          <p className={styles["error-message"]}>{errors.defense}</p>
-        )}
 
         <section>
           <input
-            className={styles.inputContainer}
-            placeholder="Speed here..."
+            className={`${styles.inputContainer} ${errors.name ? styles.error : ""}`}
+            placeholder={errors.attack ? errors.speed : "Speed here..."}
             type="text"
             name="speed"
             value={form.speed}
             onChange={handleInputChange}
           />
         </section>
-        {errors.speed && (
-          <p className={styles["error-message"]}>{errors.speed}</p>
-        )}
 
         <section>
           <input
-            className={styles.inputContainer}
-            placeholder="Height here..."
+            className={`${styles.inputContainer} ${errors.name ? styles.error : ""}`}
+            placeholder={errors.attack ? errors.height : "Height here..."}
             type="text"
             name="height"
             value={form.height}
             onChange={handleInputChange}
           />
         </section>
-        {errors.height && (
-          <p className={styles["error-message"]}>{errors.height}</p>
-        )}
 
         <section>
           <input
-            className={styles.inputContainer}
-            placeholder="Weight here..."
+            className={`${styles.inputContainer} ${errors.name ? styles.error : ""}`}
+            placeholder={errors.attack ? errors.weight : "Weight here..."}
             type="text"
             name="weight"
             value={form.weight}
             onChange={handleInputChange}
           />
         </section>
-        {errors.weight && (
-          <p className={styles["error-message"]}>{errors.weight}</p>
-        )}
 
 <section>
       <h3>Select Types</h3>
-      <div className={styles.typesContainerCreate}>           
+      <div className={styles.typesContainerCreate} >           
             <select
-              className={styles.selectButon}
+              className={`${styles.select} ${errors.name ? styles.error : ""}`}
               name="type"
               onChange={handleSelect}
             >
@@ -290,9 +266,6 @@ const FormPage = () => {
             })}
           </div>
 </section>
-{errors.types && (
-  <p className={styles["error-message"]}>{errors.types}</p>
-)}
 
         <button className={styles.submit} type="text">Create Pokemon</button>
       </form>
