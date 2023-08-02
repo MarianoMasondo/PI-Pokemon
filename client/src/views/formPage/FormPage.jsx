@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import styles from "./FormPage.module.css";
 import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
-import { allTypes } from "../../redux/actions";
+import { addPokemonToDb, allTypes } from "../../redux/actions";
 
 const validate = (form) => {
   
@@ -70,6 +70,7 @@ const FormPage = () => {
         .post("http://localhost:3001/pokemons", form)
         .then((res) => {
           alert("Pokemon created successfully");
+          dispatch(addPokemonToDb(res.data));
           setForm({
             name: "",
             image: "",

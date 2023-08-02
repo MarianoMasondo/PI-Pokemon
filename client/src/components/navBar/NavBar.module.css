@@ -9,6 +9,7 @@
 .navButtons {
   display: flex; /* Para que los botones estén en línea */
   margin-left: 60px;
+  gap: 1em;
 
 }
 

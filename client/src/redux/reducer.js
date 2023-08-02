@@ -7,6 +7,8 @@ import {
   ORDER_POKEMON_ATTACK,
   SEARCH_POKEMON,
   SORT_POKEMONS_ASC_DESC,
+  ADD_POKEMON_TO_DB,
+  
 } from "./actions";
 
 const initialState = {
@@ -15,6 +17,7 @@ const initialState = {
   pokemonDetail: [],
   searchPokemon: [],
   types: [],
+  pokemonApiDb: [],
   
 };
 
@@ -60,14 +63,23 @@ const reducer = (state = initialState, action) => {
 
       case FILTER_APIDB:
         const apiDbCopy = [...state.pokemonsCopy];
+        console.log("apiDbCopy:", apiDbCopy);
         const pokemonApiDb =
           action.payload === "database"
             ? apiDbCopy.filter((pokemon) => pokemon.createDb)
             : apiDbCopy.filter((pokemon) => !pokemon.createDb);
+            console.log("pokemonApiDb:", pokemonApiDb);
+            console.log("action.payload:", action.payload);
         return {
           ...state,
           pokemons: action.payload === "all" ? apiDbCopy : pokemonApiDb,
         };
+
+        case ADD_POKEMON_TO_DB:
+      return {
+        ...state,
+        pokemonApiDb: [...state.pokemonApiDb, action.payload],
+      };
       
 
     case SORT_POKEMONS_ASC_DESC:

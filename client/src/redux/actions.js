@@ -7,6 +7,8 @@ export const ORDER_POKEMON_ATTACK = "ORDER_POKEMON_ATTACK";
 export const FILTER_TYPES = "FILTER_TYPES";
 export const FILTER_APIDB = "FILTER_APIDB";
 export const ALL_TYPES = "ALL_TYPES";
+export const ADD_POKEMON_TO_DB = "ADD_POKEMON_TO_DB";
+
 
 export const getPokemons = () => {
     return async function(dispatch){
@@ -45,6 +47,13 @@ export const filterApiDb = (payload) => {
         payload,
     }
 }
+
+export const addPokemonToDb = (pokemon) => {
+    return {
+      type: ADD_POKEMON_TO_DB,
+      payload: pokemon,
+    };
+  };
 
 export const allTypes = () => {
     return async (dispatch) => {
