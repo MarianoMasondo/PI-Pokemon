@@ -4,8 +4,8 @@
   align-items: center;
   justify-content: center;
   height: 100vh;
-  /* background-color: #F4F2DE ; */
-  background-image: url("https://picstatio.com/large/nzzi06/pokemon-minimalism-wallpaper.png");
+  background-color: #A1CCD1 ;
+  /* background-image: url("https://picstatio.com/large/nzzi06/pokemon-minimalism-wallpaper.png"); */
   background-size: cover;
   transform: scaleX(-1);
 }

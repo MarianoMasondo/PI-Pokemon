@@ -28,10 +28,10 @@ const HomePage = () => {
 
     return (
         <div className={styles.homeContainer}>
-                <div>
+                <div className={styles.filterContainer}>
                 <OrderPokemons />
-            </div>
-            <div>
+            
+            
             <TypeFilter />
             </div>
             <div className={`${styles.paginationContainerCards} ${styles.cardContainer}`}>

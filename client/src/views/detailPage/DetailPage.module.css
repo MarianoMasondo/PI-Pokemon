@@ -1,51 +1,48 @@
 .detailContainer {
-  background-image: url("https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/i/faf72fff-846e-4637-beab-81b7ae153fa2/d9j5br4-35c34cf1-70fd-4e8a-8869-f98478f7ec5f.png/v1/fill/w_1089,h_734,q_70,strp/ash_ketchum_minimalist_by_yoshi_11_d9j5br4-pre.jpg");
-  /* background-size: cover; */
+  background: #F4F2DE;
   display: flex;
   flex-direction: column;
-  padding: 5px; 
-  color: #1b6b93;
+  padding: 5px;
+  color: #A1CCD1;
   width: 100%;
   height: fit-content;
   align-items: center;
-  border: 5px solid #000000;
-  
 }
 
 .image {
   width: 100%;
-  height: 300px;
+  height: 250px;
   border-radius: 20%;
   background-color: rgb(252, 253, 248);
   display: flex;
   justify-content: center;
   align-items: center;
   overflow: hidden;
-  
 }
 
 .h3characteristics {
   color: #ffff00;
-  margin-bottom: 5px; /* Añadir un margen inferior de 5px para separarlo del siguiente elemento */
+  margin-bottom: 3px;
 }
 
 .characteristics {
-  width: 50%;
+  width: 100%;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content:space-around;
   color: yellow;
-  text-align: center;
-  margin-top: 5px; /* Añadir un margen superior de 5px para separarlo del elemento anterior */
-  padding: 0; /* Eliminar el padding para acercarlo más al elemento anterior */
+  text-align: left;
+  margin-bottom: 3px;
+  padding: 0;
 }
-
 
 .left-column,
+.middle-column,
 .right-column {
-  width: calc(50% - 10px); /* Split the container into two columns with 10px spacing */
+  /* Ajustar el ancho de las columnas */
+  flex: 5;
+  margin: 2px;
 }
-
 
 .h1 {
   text-align: center;
@@ -57,17 +54,15 @@
 }
 
 .card {
-  background: linear-gradient(
-    170deg,
-    #A1CCD1 0%,
-    #7C9D96 100%
-  );
-  padding: 10px; /* Reducir el espacio alrededor del contenido */
-  width: 500px; /* Establecer un ancho mínimo */
-  height: 650px; /* Ajustar la altura según el contenido */
+  background: linear-gradient(170deg, #A1CCD1 0%, #7C9D96 100%);
+  padding: 10px;
+  width: 450px;
+  height: 600px;
   border-radius: 30px;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
+
+
 

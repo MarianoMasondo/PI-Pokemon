@@ -2,7 +2,7 @@
   display: flex;
   align-items: center; /* Opcional: alinea verticalmente los elementos en el centro */
   justify-content: space-between; /* Distribuye los elementos horizontalmente */
-  background-color: #A1CCD1;
+  background-color: #7C9D96;
   padding: 10px;
 }
 
@@ -36,7 +36,7 @@ button:active {
 }
 
 .navButtons button:hover {
-  background-color: #7C9D96;
+  background-color: #A1CCD1;
 }
 
 .logoContainer {
