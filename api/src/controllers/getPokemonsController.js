@@ -3,71 +3,75 @@ const { Pokemon, Type } = require("../db");
 const pageNum = 5;
 
 const allPokemons = async () => {
-  let response = await axios.get(
-    `https://pokeapi.co/api/v2/pokemon?limit=${pageNum * 20}`
-  );
+  try {
+    let response = await axios.get(`https://pokeapi.co/api/v2/pokemon?limit=${pageNum * 20}`);
+    let results = response.data.results; // Access the "results" array from the response data.
 
-  let results = response.data.results;
+    const pokemonsData = await Promise.all(
+      results.map(async ({ url }) => {
+        let response = await axios.get(url);
+        let pokemonData = response.data;
+        return {
+          id: pokemonData.id,
+          name: pokemonData.name,
+          image: pokemonData.sprites.other["dream_world"].front_default,
+          hp: pokemonData.stats[0].base_stat,
+          attack: pokemonData.stats[1].base_stat,
+          defense: pokemonData.stats[2].base_stat,
+          speed: pokemonData.stats[5].base_stat,
+          height: pokemonData.height,
+          weight: pokemonData.weight,
+          types: pokemonData.types.map((type) => type.type.name),
+        };
+      })
+    );
 
-  const pokemonsData = await Promise.all(
-    results.map(async ({ url }) => {
-      let response = await axios.get(url);
-      let pokemonData = response.data;
-      return {
-        id: pokemonData.id,
-        name: pokemonData.name,
-        image: pokemonData.sprites.other["dream_world"].front_default,
-        hp: pokemonData.stats[0].base_stat,
-        attack: pokemonData.stats[1].base_stat,
-        defense: pokemonData.stats[2].base_stat,
-        speed: pokemonData.stats[5].base_stat,
-        height: pokemonData.height,
-        weight: pokemonData.weight,
-        types: pokemonData.types.map((type) => type.type.name),
-      };
-    })
-  );
-
-  const dbData = await Pokemon.findAll({
-    include: [
-      {
-        model: Type,
-        attributes: ["name"],
-        through: {
-          attributes: [],
+    const dbData = await Pokemon.findAll({
+      include: [
+        {
+          model: Type,
+          attributes: ["name"],
+          through: {
+            attributes: [],
+          },
         },
-      },
-    ],
-  });
-  const dbDataPokemons = dbData.map(
-    ({
-      id,
-      name,
-      image,
-      hp,
-      attack,
-      defense,
-      speed,
-      height,
-      weight,
-      types,
-      createDb,
-    }) => ({
-      id: id,
-      name: name,
-      image: image,
-      hp: hp,
-      attack: attack,
-      defense: defense,
-      speed: speed,
-      height: height,
-      weight: weight,
-      types: types.map((type) => type.name),
-      createDb,
-    })
-  );
+      ],
+    });
 
-  const allData = [...pokemonsData, ...dbDataPokemons];
-  return allData;
+    const dbDataPokemons = dbData.map(
+      ({
+        id,
+        name,
+        image,
+        hp,
+        attack,
+        defense,
+        speed,
+        height,
+        weight,
+        types,
+        createDb,
+      }) => ({
+        id: id,
+        name: name,
+        image: image,
+        hp: hp,
+        attack: attack,
+        defense: defense,
+        speed: speed,
+        height: height,
+        weight: weight,
+        types: types.map((type) => type.name),
+        createDb,
+      })
+    );
+
+    const allData = [...pokemonsData, ...dbDataPokemons];
+    return allData;
+  } catch (error) {
+    console.error("Error fetching data from PokeAPI:", error);
+  }
 };
+
 module.exports = allPokemons;
+

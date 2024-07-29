@@ -22,7 +22,8 @@ const idDataPokemon = async (id) => {
       type: data.types.map((element) => element.type.name),
     };
     return idData;
-  } else {
+  }
+   else {
     searchDbId = await Pokemon?.findByPk(id, {
       include: {
         model: Type,

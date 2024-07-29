@@ -9,7 +9,6 @@ import TypeFilter from "../../components/filter/Filter";
 
 const HomePage = () => {
   const dispatch = useDispatch();
-
   const allPokemons = useSelector((state) => state.pokemons);
   const [currentPage, setCurrentPage] = useState(1);
   const [pokemonsPerPage] = useState(12);
@@ -32,14 +31,11 @@ const HomePage = () => {
     <div className={styles.homeContainer}>
       <div className={styles.filterContainer}>
         <OrderPokemons />
-
         <TypeFilter />
       </div>
-      <div
-        className={`${styles.paginationContainerCards} ${styles.cardContainer}`}
-      >
-        {currentPokemons?.map((pokemon) => {
-          return (
+      <div className={`${styles.paginationContainerCards} ${styles.cardContainer}`}>
+        {Array.isArray(currentPokemons) ? (
+          currentPokemons.map((pokemon) => (
             <Cards
               key={pokemon.id}
               id={pokemon.id}
@@ -54,8 +50,10 @@ const HomePage = () => {
               types={pokemon.types}
               createDb={pokemon.createDb}
             />
-          );
-        })}
+          ))
+        ) : (
+          <p>Loading or no data available</p> // You can customize the message.
+        )}
       </div>
       <div className={styles.paginationContainer}>
         <Pagination
@@ -70,3 +68,4 @@ const HomePage = () => {
 };
 
 export default HomePage;
+

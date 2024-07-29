@@ -10,7 +10,7 @@ export const ALL_TYPES = "ALL_TYPES";
 
 export const getPokemons = () => {
   return async function (dispatch) {
-    const apiData = await axios.get(`http://localhost:3001/pokemons/`);
+    const apiData = await axios.get(`http://localhost:3001/pokemons`);
     const pokemons = apiData.data;
     dispatch({ type: GET_POKEMONS, payload: pokemons });
   };

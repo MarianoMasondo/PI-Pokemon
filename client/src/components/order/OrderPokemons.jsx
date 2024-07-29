@@ -10,6 +10,7 @@ const OrderPokemons = () => {
   useEffect(() => {
     dispatch(getPokemons());
   }, [dispatch]);
+  
   const handleOrderAscDesc = (e) => {
     e.preventDefault();
     if (e.target.value === "default") {
