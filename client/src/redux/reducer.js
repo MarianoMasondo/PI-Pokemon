@@ -24,7 +24,7 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         pokemons: action.payload,
-        pokemonsCopy: action.payload, // Set the copy with the original data
+        pokemonsCopy: action.payload, 
       };
 
     case GET_DETAIL_POKEMON:
