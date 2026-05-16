@@ -1,36 +1,39 @@
-import { useDispatch } from "react-redux";
-import styles from "./SearchBar.module.css";
 import React, { useState } from "react";
-import { searchPokemon } from "../../redux/actions";
+import { useDispatch } from "react-redux";
+import { getPokemonByName } from "../../redux/actions";
+import styles from "./SearchBar.module.css";
 
 const SearchBar = () => {
   const dispatch = useDispatch();
   const [name, setName] = useState("");
 
-  const handleChange = (event) => {
-    event.preventDefault();
+  const handleInputChange = (event) => {
     setName(event.target.value);
-    dispatch(searchPokemon(event.target.value));
   };
 
-  // const handleReset = (event) => {
-  //     event.preventDefault();
-  //     dispatch(getPokemons());
-  //     setName(""); // Aquí establecemos el valor del campo de búsqueda a una cadena vacía
-  // }
+  const handleSubmit = (event) => {
+    event.preventDefault();
+
+    if (!name.trim()) return;
+
+    dispatch(getPokemonByName(name.trim().toLowerCase()));
+    setName("");
+  };
 
   return (
-    <div className={styles.input}>
-      <form action="">
-        <input
-          onChange={handleChange}
-          placeholder="Search Pokemon..."
-          type="search"
-          value={name}
-        />
-        {/* <button onClick={handleReset}>Reset</button>  */}
-      </form>
-    </div>
+    <form className={styles.searchForm} onSubmit={handleSubmit}>
+      <input
+        className={styles.searchInput}
+        type="text"
+        placeholder="Buscar Pokémon..."
+        value={name}
+        onChange={handleInputChange}
+      />
+
+      <button className={styles.searchButton} type="submit">
+        🔍
+      </button>
+    </form>
   );
 };
 
