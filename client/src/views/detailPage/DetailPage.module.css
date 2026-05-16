@@ -41,6 +41,7 @@
     radial-gradient(circle at top left, rgba(255, 255, 255, 0.14), transparent 34%),
     linear-gradient(135deg, rgba(15, 23, 42, 0.96), rgba(2, 6, 23, 0.98));
   z-index: 0;
+  pointer-events: none;
 }
 
 .closeButton,
@@ -55,6 +56,7 @@
   top: 22px;
   right: 22px;
   height: 42px;
+  min-width: 88px;
   padding: 0 20px;
   border-radius: 999px;
   border: 1px solid rgba(250, 204, 21, 0.65);
@@ -67,6 +69,14 @@
   transition:
     transform 0.2s ease,
     box-shadow 0.2s ease;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  text-align: center;
+  text-decoration: none;
+  z-index: 10;
 }
 
 .closeButton:hover {
@@ -78,7 +88,7 @@
 
 .cardHeader {
   min-height: 115px;
-  padding: 30px 34px 14px;
+  padding: 46px 130px 14px 34px;
   display: flex;
   align-items: center;
   gap: 20px;
@@ -102,7 +112,7 @@
 }
 
 .subtitle {
-  margin: 0 0 6px;
+  margin: 0 0 8px;
   color: #93c5fd;
   font-size: 13px;
   font-weight: 900;
@@ -122,7 +132,7 @@
 }
 
 .mainContent {
-  padding: 16px 34px 34px;
+  padding: 8px 34px 34px;
   display: grid;
   grid-template-columns: 340px 1fr;
   gap: 28px;
@@ -275,7 +285,7 @@
   }
 
   .cardHeader {
-    padding-right: 120px;
+    padding: 80px 120px 14px 24px;
   }
 
   .cardHeader h1 {
@@ -305,9 +315,5 @@
   .closeButton {
     top: 18px;
     right: 18px;
-    text-decoration: none;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   }
 }
