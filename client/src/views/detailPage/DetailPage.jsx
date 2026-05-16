@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { useParams, useHistory } from "react-router-dom";
+import { useParams, NavLink } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import styles from "./DetailPage.module.css";
 import { getPokemonDetail } from "../../redux/actions";
@@ -7,17 +7,12 @@ import { getPokemonDetail } from "../../redux/actions";
 const DetailPage = () => {
   const { id } = useParams();
   const dispatch = useDispatch();
-  const history = useHistory();
 
   const pokemonDetail = useSelector((state) => state.pokemonDetail);
 
   useEffect(() => {
     dispatch(getPokemonDetail(id));
   }, [dispatch, id]);
-
-  const handleCloseDetail = () => {
-    history.push("/home");
-  };
 
   const capitalizeFirstLetter = (text) => {
     if (!text || typeof text !== "string") return "";
@@ -83,9 +78,9 @@ const DetailPage = () => {
         className={styles.detailCard}
         style={{ "--detail-color": detailColor }}
       >
-        <button className={styles.closeButton} onClick={handleCloseDetail}>
+        <NavLink to="/home" className={styles.closeButton}>
           Close
-        </button>
+        </NavLink>
 
         <div className={styles.cardHeader}>
           <span className={styles.idBadge}>#{pokemonDetail.id}</span>
