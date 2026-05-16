@@ -2,9 +2,46 @@
   display: flex;
   flex-direction: row;
   align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px;
 }
 
-.orderAscDesc,
-.orderByAttack {
-  margin-right: 10px;
+.select {
+  min-width: 185px;
+  height: 44px;
+  padding: 0 44px 0 16px;
+  border-radius: 999px;
+  border: 1px solid rgba(96, 165, 250, 0.55);
+  background:
+    linear-gradient(135deg, rgba(15, 23, 42, 0.96), rgba(2, 6, 23, 0.96));
+  color: #e0f2fe;
+  font-size: 14px;
+  font-weight: 800;
+  outline: none;
+  cursor: pointer;
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 255, 255, 0.04),
+    0 8px 20px rgba(0, 0, 0, 0.25);
+  transition: border-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.select:hover {
+  transform: translateY(-2px);
+  border-color: #facc15;
+  box-shadow:
+    0 0 0 3px rgba(250, 204, 21, 0.12),
+    0 12px 24px rgba(0, 0, 0, 0.35);
+}
+
+.select:focus {
+  border-color: #facc15;
+  box-shadow:
+    0 0 0 4px rgba(250, 204, 21, 0.18),
+    0 12px 24px rgba(0, 0, 0, 0.35);
+}
+
+.select option {
+  background: #020617;
+  color: #f8fafc;
 }

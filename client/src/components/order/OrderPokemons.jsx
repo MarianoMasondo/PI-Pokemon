@@ -10,19 +10,22 @@ const OrderPokemons = () => {
   useEffect(() => {
     dispatch(getPokemons());
   }, [dispatch]);
-  
+
   const handleOrderAscDesc = (e) => {
     e.preventDefault();
+
     if (e.target.value === "default") {
       dispatch(getPokemons());
     } else {
       dispatch(orderPokemons(e.target.value));
     }
+
     setAux(!aux);
   };
 
   const handleOrderAttack = (e) => {
     e.preventDefault();
+
     if (e.target.value === "default") {
       dispatch(getPokemons());
     } else if (e.target.value === "asc") {
@@ -30,25 +33,25 @@ const OrderPokemons = () => {
     } else if (e.target.value === "desc") {
       dispatch(orderAttack("lowest"));
     }
+
     setAux(!aux);
   };
+
   return (
     <div className={styles.orderContainer}>
-      <div className={`${styles.orderAscDesc}`}>
-        <select onChange={(e) => handleOrderAscDesc(e)}>
-          <option value="default">Order alphabetically</option>
-          <option value="asc">Ascendent</option>
-          <option value="desc">Descendent</option>
-        </select>
-      </div>
-      <div className={`${styles.orderByAttack}`}>
-        <select onChange={(e) => handleOrderAttack(e)}>
-          <option value="default">Search by attack</option>
-          <option value="asc">Weakest</option>
-          <option value="desc">Strongest</option>
-        </select>
-      </div>
+      <select className={styles.select} onChange={handleOrderAscDesc}>
+        <option value="default">Orden alfabético</option>
+        <option value="asc">A - Z</option>
+        <option value="desc">Z - A</option>
+      </select>
+
+      <select className={styles.select} onChange={handleOrderAttack}>
+        <option value="default">Orden por ataque</option>
+        <option value="asc">Menor ataque</option>
+        <option value="desc">Mayor ataque</option>
+      </select>
     </div>
   );
 };
+
 export default OrderPokemons;

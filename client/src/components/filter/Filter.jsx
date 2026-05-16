@@ -10,6 +10,8 @@ import styles from "./Filter.module.css";
 
 const TypeFilter = () => {
   const [selectedType, setSelectedType] = useState("");
+  const [selectedSource, setSelectedSource] = useState("all");
+
   const types = useSelector((state) => state.types);
   const dispatch = useDispatch();
 
@@ -20,7 +22,8 @@ const TypeFilter = () => {
   const handleFilter = (e) => {
     const selectedValue = e.target.value;
     setSelectedType(selectedValue);
-    if (e.target.value === "default") {
+
+    if (selectedValue === "default") {
       dispatch(getPokemons());
     } else {
       dispatch(filterType(selectedValue));
@@ -28,51 +31,70 @@ const TypeFilter = () => {
   };
 
   const handleSourceFilter = (e) => {
-    setSelectedType(e.target.value);
-    dispatch(filterApiDb(e.target.value));
+    const selectedValue = e.target.value;
+    setSelectedSource(selectedValue);
+    dispatch(filterApiDb(selectedValue));
   };
 
   return (
     <div className={styles.filterContainer}>
-      <div>
-        <select onChange={(e) => handleFilter(e)} value={selectedType}>
-          <option value="default">Filter by type</option>
-          {types?.map((type) => (
-            <option key={type.id} value={type.name}>
-              {type.name}
-            </option>
-          ))}
-        </select>
-      </div>
+      <select
+        className={styles.select}
+        onChange={handleFilter}
+        value={selectedType}
+      >
+        <option value="default">Todos los tipos</option>
 
-      <div className={styles.filterContainerInput}>
-        <span>Filter by source:</span>
-        <label>
+        {types?.map((type) => (
+          <option key={type.id || type.name} value={type.name}>
+            {type.name}
+          </option>
+        ))}
+      </select>
+
+      <div className={styles.sourceBox}>
+        <span>Origen</span>
+
+        <label
+          className={`${styles.radioPill} ${
+            selectedSource === "all" ? styles.active : ""
+          }`}
+        >
           <input
             type="radio"
             value="all"
-            checked={selectedType === "all"}
+            checked={selectedSource === "all"}
             onChange={handleSourceFilter}
           />
-          All
+          Todos
         </label>
-        <label>
+
+        <label
+          className={`${styles.radioPill} ${
+            selectedSource === "api" ? styles.active : ""
+          }`}
+        >
           <input
             type="radio"
             value="api"
-            checked={selectedType === "api"}
+            checked={selectedSource === "api"}
             onChange={handleSourceFilter}
           />
           API
         </label>
-        <label>
+
+        <label
+          className={`${styles.radioPill} ${
+            selectedSource === "database" ? styles.active : ""
+          }`}
+        >
           <input
             type="radio"
             value="database"
-            checked={selectedType === "database"}
+            checked={selectedSource === "database"}
             onChange={handleSourceFilter}
           />
-          Database
+          DB
         </label>
       </div>
     </div>

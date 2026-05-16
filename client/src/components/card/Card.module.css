@@ -4,93 +4,128 @@
   justify-content: center;
 }
 
+.cardLink {
+  text-decoration: none;
+  color: inherit;
+}
+
 .card_box {
-  width: 200px;
-  height: 250px;
-  border-radius: 20px;
-  background: linear-gradient(170deg, #f4f2de 0%, #e9b384 70%, #f4f2de 100%);
-  position: relative;
-  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.55);
+  width: 220px;
+  height: 300px;
+  padding: 4px;
+  border-radius: 22px;
+  background: linear-gradient(
+    135deg,
+    var(--type-color),
+    #1d4ed8 45%,
+    #020617
+  );
+  box-shadow:
+    0 18px 35px rgba(0, 0, 0, 0.45),
+    0 0 18px color-mix(in srgb, var(--type-color) 45%, transparent);
   cursor: pointer;
-  transition: all 0.3s;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
 .card_box:hover {
-  transform: scale(0.9);
+  transform: translateY(-8px) scale(1.02);
+  box-shadow:
+    0 26px 50px rgba(0, 0, 0, 0.6),
+    0 0 26px color-mix(in srgb, var(--type-color) 65%, transparent);
 }
 
-.card_box span {
-  position: absolute;
+.imageBox {
+  height: 170px;
+  margin: 0;
+  border-radius: 18px 18px 10px 10px;
+  display: grid;
+  place-items: center;
+  background:
+    radial-gradient(circle at center, rgba(255, 255, 255, 0.22), transparent 55%),
+    linear-gradient(135deg, rgba(255, 255, 255, 0.12), rgba(15, 23, 42, 0.7));
   overflow: hidden;
-  width: 150px;
-  height: 150px;
-  top: -10px;
-  left: -10px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
-.card_box span::before {
-  content: "Premium";
-  position: absolute;
-  width: 150%;
-  height: 40px;
-  background-image: linear-gradient(
-    45deg,
-    #ff6547 0%,
-    #ffb144 51%,
-    #ff7053 100%
-  );
-  transform: rotate(-45deg) translateY(-20px);
+.imageBox img {
+  width: 145px;
+  height: 145px;
+  object-fit: contain;
+  filter: drop-shadow(0 16px 16px rgba(0, 0, 0, 0.55));
+  transition: transform 0.25s ease;
+}
+
+.card_box:hover .imageBox img {
+  transform: scale(1.08);
+}
+
+.infoBox {
+  height: 122px;
+  padding: 13px 14px;
+  box-sizing: border-box;
+  border-radius: 0 0 18px 18px;
+  background:
+    linear-gradient(rgba(2, 6, 23, 0.3), rgba(2, 6, 23, 0.95)),
+    #020617;
   display: flex;
-  align-items: center;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.infoBox h1 {
+  margin: 0;
+  color: #f8fafc;
+  font-size: 25px;
+  line-height: 1;
+  text-align: center;
+  text-transform: capitalize;
+  text-shadow: 0 3px 10px rgba(0, 0, 0, 0.85);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.typesBox {
+  display: flex;
   justify-content: center;
-  color: #fff;
-  font-weight: 600;
-  letter-spacing: 0.1em;
+  flex-wrap: wrap;
+  gap: 7px;
+}
+
+.typeBadge {
+  padding: 5px 10px;
+  border-radius: 999px;
+  background: var(--type-color);
+  color: #020617;
+  font-size: 11px;
+  font-weight: 900;
   text-transform: uppercase;
-  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.23);
+  font-family: Arial, Helvetica, sans-serif;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
 }
 
-.card_box span::after {
-  content: "";
-  position: absolute;
-  width: 10px;
-  bottom: 0;
-  left: 0;
-  height: 10px;
-  z-index: -1;
-  box-shadow: 140px -140px #cc3f47;
-  background-image: linear-gradient(
-    45deg,
-    #ff512f 0%,
-    #f09819 51%,
-    #ff512f 100%
-  );
-}
-
-.cardContainer img {
-  width: 130px;
-  height: 130px;
-  border-radius: 50%;
-  margin-top: -5px;
-}
-
-.cardContainer h1 {
+.attack {
+  margin: 0;
+  color: #e2e8f0;
+  font-size: 15px;
+  font-weight: 800;
   text-align: center;
-  font-family: sans-serif;
-  color: #d71313;
-  margin: 10px;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
-.cardContainer h3 {
-  text-align: center;
-  font-family: sans-serif;
-  color: #0d1282;
-  margin-top: 5px;
+@media (max-width: 768px) {
+  .card_box {
+    width: 205px;
+    height: 285px;
+  }
+
+  .imageBox {
+    height: 158px;
+  }
+
+  .imageBox img {
+    width: 132px;
+    height: 132px;
+  }
+
+  .infoBox h1 {
+    font-size: 22px;
+  }
 }

@@ -1,32 +1,45 @@
 import React from "react";
-import { Link } from "react-router-dom";
-import styles from "./NavBar.module.css";
+import { NavLink } from "react-router-dom";
 import SearchBar from "../searchBar/SearchBar";
+import styles from "./NavBar.module.css";
 
 const NavBar = () => {
   return (
-    <div className={styles.navBarContainer}>
-      <div className={styles.navButtons}>
-        <Link to="/home">
-          <button>Home</button>
-        </Link>
-        <Link to="/create">
-          <button>Create</button>
-        </Link>
+    <nav className={styles.navbar}>
+      <div className={styles.navContent}>
+        <div className={styles.leftButtons}>
+          <NavLink
+            to="/home"
+            className={({ isActive }) =>
+              isActive ? `${styles.navButton} ${styles.active}` : styles.navButton
+            }
+          >
+            Home
+          </NavLink>
+
+          <NavLink
+            to="/create"
+            className={({ isActive }) =>
+              isActive ? `${styles.navButton} ${styles.active}` : styles.navButton
+            }
+          >
+            Create
+          </NavLink>
+        </div>
+
+        <NavLink to="/home" className={styles.logoBox}>
+          <span className={styles.pokeball}>◉</span>
+          <div>
+            <h1>Pokémon</h1>
+            <p>PI App</p>
+          </div>
+        </NavLink>
+
+        <div className={styles.searchBox}>
+          <SearchBar />
+        </div>
       </div>
-      <div className={styles.logoContainer}>
-        <img
-          src={
-            "https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/International_Pok%C3%A9mon_logo.svg/269px-International_Pok%C3%A9mon_logo.svg.png"
-          }
-          alt="Logo Pokemon"
-          className={styles.logoImage}
-        />
-      </div>
-      <div className={styles.searchBarContainer}>
-        <SearchBar />
-      </div>
-    </div>
+    </nav>
   );
 };
 
