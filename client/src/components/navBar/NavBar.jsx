@@ -30,8 +30,8 @@ const NavBar = () => {
         <NavLink to="/home" className={styles.logoBox}>
           <span className={styles.pokeball}>◉</span>
           <div>
-            <h1>Pokémon</h1>
-            <p>PI App</p>
+            <h1>Pokémon App</h1>
+            <p>Proyecto Individual </p>
           </div>
         </NavLink>
 
