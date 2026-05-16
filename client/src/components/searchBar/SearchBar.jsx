@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import { getPokemonByName } from "../../redux/actions";
+import { searchPokemon } from "../../redux/actions";
 import styles from "./SearchBar.module.css";
 
 const SearchBar = () => {
@@ -16,7 +16,7 @@ const SearchBar = () => {
 
     if (!name.trim()) return;
 
-    dispatch(getPokemonByName(name.trim().toLowerCase()));
+    dispatch(searchPokemon(name.trim().toLowerCase()));
     setName("");
   };
 
