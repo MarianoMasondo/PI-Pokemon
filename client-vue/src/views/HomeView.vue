@@ -1,10 +1,38 @@
-<script setup></script>
+<script setup>
+import { onMounted } from 'vue';
+import { usePokemonStore } from '@/stores/pokemonStore';
+import PokemonCard from '@/components/PokemonCard.vue';
+
+const pokemonStore = usePokemonStore()
+
+onMounted(() => {
+    pokemonStore.getPokemons()
+})
+</script>
 
 <template>
     <main>
-        <h1>Home Vue Funcionando</h1>
-        <p>Más adelante vamos a mostrar acá las tarjetas de Pokemon</p>
+        <h1>Pokémon con Vue</h1>
+        <p>cantidad recibida: {{ pokemonStore.pokemons.length }}</p>
+
+        <section class="cards-container">
+            <PokemonCard
+            v-for="pokemon in pokemonStore.pokemons"
+            :key="pokemon.id"
+            :pokemon="pokemon"
+            />
+            </section>
     </main>
 </template>
 
-<style scoped></style>
+<style scoped>
+main{
+    padding: 24px;
+}
+
+.cards-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+</style>
