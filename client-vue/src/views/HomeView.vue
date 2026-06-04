@@ -6,6 +6,7 @@ import PokemonCard from '@/components/PokemonCard.vue'
 import Pagination from '@/components/Pagination.vue'
 import SearchBar from '@/components/SearchBar.vue'
 import PokemonFilters from '@/components/PokemonFilters.vue'
+import PokemonSort from '@/components/PokemonSort.vue'
 
 const pokemonStore = usePokemonStore()
 
@@ -15,6 +16,7 @@ const pokemonsPerPage = 12
 const searchTerm = ref('')
 const selectedType = ref('all')
 const selectedOrigin = ref('all')
+const selectedOrder = ref('default')
 
 onMounted(() => {
   pokemonStore.getPokemons()
@@ -51,6 +53,36 @@ const filteredPokemons = computed(() => {
   })
 })
 
+const sortedPokemons = computed(() => {
+  const pokemonsCopy = [...filteredPokemons.value]
+
+  if (selectedOrder.value === 'name-asc') {
+    return pokemonsCopy.sort((a, b) =>
+      a.name.localeCompare(b.name)
+    )
+  }
+
+  if (selectedOrder.value === 'name-desc') {
+    return pokemonsCopy.sort((a, b) =>
+      b.name.localeCompare(a.name)
+    )
+  }
+
+  if (selectedOrder.value === 'attack-desc') {
+    return pokemonsCopy.sort((a, b) =>
+      Number(b.attack) - Number(a.attack)
+    )
+  }
+
+  if (selectedOrder.value === 'attack-asc') {
+    return pokemonsCopy.sort((a, b) =>
+      Number(a.attack) - Number(b.attack)
+    )
+  }
+
+  return pokemonsCopy
+})
+
 const totalPages = computed(() => {
   return Math.ceil(
     filteredPokemons.value.length / pokemonsPerPage
@@ -61,7 +93,7 @@ const currentPokemons = computed(() => {
   const firstIndex = (currentPage.value - 1) * pokemonsPerPage
   const lastIndex = firstIndex + pokemonsPerPage
 
-  return filteredPokemons.value.slice(firstIndex, lastIndex)
+  return sortedPokemons.value.slice(firstIndex, lastIndex)
 })
 
 const changePage = (pageNumber) => {
@@ -69,7 +101,7 @@ const changePage = (pageNumber) => {
 }
 
 watch(
-  [searchTerm, selectedType, selectedOrigin],
+  [searchTerm, selectedType, selectedOrigin, selectedOrder],
   () => {
     currentPage.value = 1
   }
@@ -97,6 +129,11 @@ watch(
       @update:selected-type="selectedType = $event"
       @update:selected-origin="selectedOrigin = $event"
     />
+
+    <PokemonSort
+  :selected-order="selectedOrder"
+  @update:selected-order="selectedOrder = $event"
+/>
 
     <p>
       Coincidencias encontradas:
