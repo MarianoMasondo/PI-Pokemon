@@ -106,6 +106,18 @@ watch(
     currentPage.value = 1
   }
 )
+
+const deletePokemon = async (id) => {
+  const confirmed = window.confirm(
+    '¿Querés eliminar este Pokémon?'
+  )
+
+  if (!confirmed) {
+    return
+  }
+
+  await pokemonStore.deletePokemon(id)
+}
 </script>
 
 <template>
@@ -154,10 +166,11 @@ watch(
 
       <section class="cards-container">
         <PokemonCard
-          v-for="pokemon in currentPokemons"
-          :key="pokemon.id"
-          :pokemon="pokemon"
-        />
+  v-for="pokemon in currentPokemons"
+  :key="pokemon.id"
+  :pokemon="pokemon"
+  @delete-pokemon="deletePokemon"
+/>
       </section>
 
       <p v-if="filteredPokemons.length === 0">

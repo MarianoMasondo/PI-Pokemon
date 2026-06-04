@@ -73,5 +73,13 @@ export const usePokemonStore = defineStore('pokemon', {
 
       await this.getPokemons()
     },
+
+    async deletePokemon(id) {
+  await axios.delete(`${API_URL}/pokemons/${id}`)
+
+  this.pokemons = this.pokemons.filter(
+    (pokemon) => pokemon.id !== id
+  )
+},
   },
 })

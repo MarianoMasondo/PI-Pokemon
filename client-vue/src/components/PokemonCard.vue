@@ -1,10 +1,16 @@
 <script setup>
-defineProps({
+const props = defineProps({
   pokemon: {
     type: Object,
     required: true,
   },
-});
+})
+
+const emit = defineEmits(['delete-pokemon'])
+
+const handleDelete = () => {
+  emit('delete-pokemon', props.pokemon.id)
+}
 </script>
 
 <template>
@@ -24,6 +30,15 @@ defineProps({
     </p>
 
     <RouterLink :to="`/detail/${pokemon.id}`"> Ver detalle </RouterLink>
+
+    <button
+  v-if="pokemon.createDb"
+  class="delete-button"
+  type="button"
+  @click="handleDelete"
+>
+  Eliminar
+</button>
   </article>
 </template>
 
@@ -45,5 +60,13 @@ defineProps({
 
 h2 {
   text-transform: capitalize;
+}
+
+.delete-button {
+  margin-top: 12px;
+  padding: 8px 12px;
+  border: 0;
+  border-radius: 6px;
+  cursor: pointer;
 }
 </style>

@@ -32,26 +32,94 @@ const isTypeDisabled = (typeName) => {
   )
 }
 
+const isValidImageUrl = (url) => {
+  try {
+    const parsedUrl = new URL(url)
+
+    return (
+      parsedUrl.protocol === 'http:' ||
+      parsedUrl.protocol === 'https:'
+    )
+  } catch {
+    return false
+  }
+}
+
+const isPositiveNumber = (value) => {
+  return Number.isFinite(value) && value > 0
+}
+
 const handleSubmit = async () => {
   errorMessage.value = ''
 
-  const hasEmptyField =
-    !form.name.trim() ||
-    !form.image.trim() ||
-    !form.hp ||
-    !form.attack ||
-    !form.defense ||
-    !form.speed ||
-    !form.height ||
-    !form.weight
+  const normalizedName = form.name.trim()
+  const normalizedImage = form.image.trim()
 
-  if (hasEmptyField) {
-    errorMessage.value = 'Completá todos los campos obligatorios.'
+  if (!normalizedName) {
+    errorMessage.value = 'Ingresá un nombre.'
     return
+  }
+
+  const validName = /^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s-]+$/
+
+  if (!validName.test(normalizedName)) {
+    errorMessage.value =
+      'El nombre solamente puede contener letras, espacios o guiones.'
+    return
+  }
+
+  if (!normalizedImage) {
+    errorMessage.value = 'Ingresá la URL de una imagen.'
+    return
+  }
+
+  if (!isValidImageUrl(normalizedImage)) {
+    errorMessage.value =
+      'La imagen debe tener una URL válida que comience con http o https.'
+    return
+  }
+
+  if (!isPositiveNumber(form.hp)) {
+    errorMessage.value = 'La vida debe ser un número mayor que cero.'
+    return
+  }
+
+  if (!isPositiveNumber(form.attack)) {
+    errorMessage.value = 'El ataque debe ser un número mayor que cero.'
+    return
+  }
+
+  if (!isPositiveNumber(form.defense)) {
+    errorMessage.value = 'La defensa debe ser un número mayor que cero.'
+    return
+  }
+
+  const optionalStats = [
+    { label: 'velocidad', value: form.speed },
+    { label: 'altura', value: form.height },
+    { label: 'peso', value: form.weight },
+  ]
+
+  for (const stat of optionalStats) {
+    const hasValue =
+      stat.value !== '' &&
+      stat.value !== null &&
+      stat.value !== undefined
+
+    if (hasValue && !isPositiveNumber(stat.value)) {
+      errorMessage.value =
+        `La ${stat.label} debe ser un número mayor que cero.`
+      return
+    }
   }
 
   if (form.types.length === 0) {
     errorMessage.value = 'Seleccioná al menos un tipo.'
+    return
+  }
+
+  if (form.types.length > 2) {
+    errorMessage.value = 'Podés seleccionar como máximo dos tipos.'
     return
   }
 
@@ -60,8 +128,11 @@ const handleSubmit = async () => {
 
     await pokemonStore.createPokemon({
       ...form,
-      name: form.name.trim().toLowerCase(),
-      image: form.image.trim(),
+      name: normalizedName.toLowerCase(),
+      image: normalizedImage,
+      speed: form.speed || null,
+  height: form.height || null,
+  weight: form.weight || null,
     })
 
     router.push('/home')
@@ -85,7 +156,7 @@ const handleSubmit = async () => {
         <input
           v-model="form.name"
           type="text"
-          placeholder="Ejemplo: pikamariano"
+          placeholder="Ejemplo: Pokejemplo"
         />
       </label>
 
@@ -103,7 +174,6 @@ const handleSubmit = async () => {
         <input
           v-model.number="form.hp"
           type="number"
-          min="1"
         />
       </label>
 
@@ -112,7 +182,6 @@ const handleSubmit = async () => {
         <input
           v-model.number="form.attack"
           type="number"
-          min="1"
         />
       </label>
 
@@ -121,7 +190,6 @@ const handleSubmit = async () => {
         <input
           v-model.number="form.defense"
           type="number"
-          min="1"
         />
       </label>
 
@@ -130,7 +198,6 @@ const handleSubmit = async () => {
         <input
           v-model.number="form.speed"
           type="number"
-          min="1"
         />
       </label>
 
@@ -139,7 +206,6 @@ const handleSubmit = async () => {
         <input
           v-model.number="form.height"
           type="number"
-          min="1"
         />
       </label>
 
@@ -148,7 +214,6 @@ const handleSubmit = async () => {
         <input
           v-model.number="form.weight"
           type="number"
-          min="1"
         />
       </label>
 
