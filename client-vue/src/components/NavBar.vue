@@ -9,6 +9,10 @@
     <RouterLink to="/">
       Landing
     </RouterLink>
+
+    <RouterLink to="/create">
+  Crear Pokémon
+</RouterLink>
   </header>
 </template>
 

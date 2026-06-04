@@ -112,52 +112,65 @@ watch(
   <main>
     <h1>Pokémon con Vue</h1>
 
-    <p>
-      Cantidad total recibida:
-      {{ pokemonStore.pokemons.length }}
+    <p v-if="pokemonStore.isLoadingPokemons">
+      Cargando Pokémon...
     </p>
 
-    <SearchBar
-      :search-term="searchTerm"
-      @update:search-term="searchTerm = $event"
-    />
-
-    <PokemonFilters
-      :selected-type="selectedType"
-      :selected-origin="selectedOrigin"
-      :available-types="availableTypes"
-      @update:selected-type="selectedType = $event"
-      @update:selected-origin="selectedOrigin = $event"
-    />
-
-    <PokemonSort
-  :selected-order="selectedOrder"
-  @update:selected-order="selectedOrder = $event"
-/>
-
-    <p>
-      Coincidencias encontradas:
-      {{ filteredPokemons.length }}
+    <p
+      v-else-if="pokemonStore.pokemonsError"
+      class="error-message"
+    >
+      {{ pokemonStore.pokemonsError }}
     </p>
 
-    <section class="cards-container">
-      <PokemonCard
-        v-for="pokemon in currentPokemons"
-        :key="pokemon.id"
-        :pokemon="pokemon"
+    <section v-else>
+      <p>
+        Cantidad total recibida:
+        {{ pokemonStore.pokemons.length }}
+      </p>
+
+      <SearchBar
+        :search-term="searchTerm"
+        @update:search-term="searchTerm = $event"
+      />
+
+      <PokemonFilters
+        :selected-type="selectedType"
+        :selected-origin="selectedOrigin"
+        :available-types="availableTypes"
+        @update:selected-type="selectedType = $event"
+        @update:selected-origin="selectedOrigin = $event"
+      />
+
+      <PokemonSort
+        :selected-order="selectedOrder"
+        @update:selected-order="selectedOrder = $event"
+      />
+
+      <p>
+        Coincidencias encontradas:
+        {{ filteredPokemons.length }}
+      </p>
+
+      <section class="cards-container">
+        <PokemonCard
+          v-for="pokemon in currentPokemons"
+          :key="pokemon.id"
+          :pokemon="pokemon"
+        />
+      </section>
+
+      <p v-if="filteredPokemons.length === 0">
+        No se encontraron Pokémon.
+      </p>
+
+      <Pagination
+        v-if="totalPages > 1"
+        :total-pages="totalPages"
+        :current-page="currentPage"
+        @change-page="changePage"
       />
     </section>
-
-    <p v-if="filteredPokemons.length === 0">
-      No se encontraron Pokémon.
-    </p>
-
-    <Pagination
-      v-if="totalPages > 1"
-      :total-pages="totalPages"
-      :current-page="currentPage"
-      @change-page="changePage"
-    />
   </main>
 </template>
 
@@ -170,5 +183,9 @@ main {
   display: flex;
   flex-wrap: wrap;
   gap: 16px;
+}
+
+.error-message {
+  color: crimson;
 }
 </style>

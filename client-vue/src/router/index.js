@@ -2,6 +2,7 @@ import { createRouter, createWebHistory } from "vue-router";
 import HomeView from "@/views/HomeView.vue";
 import DetailView from "@/views/DetailView.vue";
 import LandingView from "@/views/LandingView.vue";
+import FormView from "@/views/FormView.vue";
 
 const router = createRouter({
   history: createWebHistory(),
@@ -21,6 +22,11 @@ const router = createRouter({
       name: "detail",
       component: DetailView,
     },
+    {
+  path: '/create',
+  name: 'create',
+  component: FormView,
+},
   ],
 });
 

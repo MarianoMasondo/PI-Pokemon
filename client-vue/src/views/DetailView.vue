@@ -13,9 +13,21 @@ onMounted(() => {
 
 <template>
   <main class="detail-page">
-    <p v-if="!pokemonStore.pokemonDetail">Cargando Pokémon...</p>
+    <p v-if="pokemonStore.isLoadingDetail">
+      Cargando Pokémon...
+    </p>
 
-    <article v-else class="detail-card">
+    <p
+      v-else-if="pokemonStore.detailError"
+      class="error-message"
+    >
+      {{ pokemonStore.detailError }}
+    </p>
+
+    <article
+      v-else-if="pokemonStore.pokemonDetail"
+      class="detail-card"
+    >
       <img
         class="detail-image"
         :src="pokemonStore.pokemonDetail.image"
@@ -31,7 +43,10 @@ onMounted(() => {
 
       <p>
         <strong>Tipos:</strong>
-        {{ pokemonStore.pokemonDetail.type.join(", ") }}
+        {{
+          pokemonStore.pokemonDetail.types?.join(', ') ||
+          'Sin tipos disponibles'
+        }}
       </p>
 
       <p>
@@ -64,7 +79,9 @@ onMounted(() => {
         {{ pokemonStore.pokemonDetail.weight }}
       </p>
 
-      <RouterLink to="/home"> Volver a Home </RouterLink>
+      <RouterLink to="/home">
+        Volver a Home
+      </RouterLink>
     </article>
   </main>
 </template>
@@ -91,5 +108,9 @@ onMounted(() => {
 
 h1 {
   text-transform: capitalize;
+}
+
+.error-message {
+  color: crimson;
 }
 </style>
