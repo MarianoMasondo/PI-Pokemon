@@ -104,7 +104,7 @@ const deletePokemon = async (id) => {
     <section class="home-container">
       <header class="hero">
         <div>
-          <p class="eyebrow">Explorar Pokédex</p>
+          <p class="eyebrow">Explorar Pokémons</p>
 
           <h1>Pokémons</h1>
 

@@ -82,7 +82,7 @@ const deletePokemon = async () => {
             />
           </div>
 
-          <p class="visual-caption">Registro Pokédex</p>
+          <p class="visual-caption">Registro Pokémon</p>
         </section>
 
         <section class="information-panel">

@@ -152,7 +152,7 @@ const handleSubmit = async () => {
         </div>
 
         <div class="hero-badge">
-          <span>Pokédex</span>
+          <span>Pokémon</span>
           <strong>Nuevo</strong>
         </div>
       </header>
