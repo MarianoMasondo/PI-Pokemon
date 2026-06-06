@@ -1,4 +1,6 @@
-<script setup></script>
+<script setup>
+import vueLogo from "@/assets/vue-logo.png";
+</script>
 
 <template>
   <header class="navbar">
@@ -8,14 +10,17 @@
 
         <div>
           <strong>Pokédex</strong>
-          <small>Vue Edition</small>
+
+          <div class="vue-edition">
+            <img :src="vueLogo" alt="Vue" />
+
+            <small>Vue Edition</small>
+          </div>
         </div>
       </RouterLink>
 
       <nav class="navbar-links" aria-label="Navegación principal">
-        <RouterLink class="nav-link" to="/home">
-          Explorar
-        </RouterLink>
+        <RouterLink class="nav-link" to="/home"> Inicio </RouterLink>
 
         <RouterLink class="create-link" to="/create">
           <span>+</span>
@@ -55,7 +60,7 @@
   text-decoration: none;
 }
 
-.brand div {
+.brand > div {
   display: flex;
   flex-direction: column;
 }
@@ -173,7 +178,7 @@
     font-size: 17px;
   }
 
-  .brand small {
+  .vue-edition {
     display: none;
   }
 
@@ -191,5 +196,27 @@
   .create-link span {
     display: none;
   }
+}
+
+.vue-edition {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 5px;
+  margin-top: 2px;
+}
+
+.vue-edition img {
+  width: 12px;
+  height: 12px;
+  display: block;
+}
+
+.vue-edition small {
+  color: #a7b4cc;
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  line-height: 1;
+  text-transform: uppercase;
 }
 </style>

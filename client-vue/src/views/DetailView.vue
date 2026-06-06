@@ -56,7 +56,7 @@ const deletePokemon = async () => {
         </p>
 
         <RouterLink class="back-button" to="/home">
-          Volver a explorar
+          Volver a Inicio
         </RouterLink>
       </section>
 
@@ -157,7 +157,7 @@ const deletePokemon = async () => {
 
           <div class="detail-actions">
             <RouterLink class="back-button" to="/home">
-              ← Volver a explorar
+              ← Volver a Inicio
             </RouterLink>
 
             <button
