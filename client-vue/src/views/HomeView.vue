@@ -106,7 +106,7 @@ const deletePokemon = async (id) => {
         <div>
           <p class="eyebrow">Explorar Pokémons</p>
 
-          <h1>Pokémons</h1>
+          <h1>Pokémon</h1>
 
           <p class="hero-description">
             Buscá, filtrá y compará Pokémon de la API y de tu propia colección.

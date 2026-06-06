@@ -30,7 +30,7 @@ import vueLogo from "@/assets/vue-logo.png";
           <p class="eyebrow">Explorá. Compará. Creá.</p>
 
           <h1>
-            Tu Pokédex,
+            Tu PokéApi,
             <span>más completa.</span>
           </h1>
 
