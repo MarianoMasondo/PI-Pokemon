@@ -1,10 +1,12 @@
 const axios = require("axios");
 const { Pokemon, Type } = require("../db");
-const pageNum = 5;
+const pageNum = 10;
 
 const allPokemons = async () => {
   try {
-    let response = await axios.get(`https://pokeapi.co/api/v2/pokemon?limit=${pageNum * 20}`);
+    let response = await axios.get(
+      `https://pokeapi.co/api/v2/pokemon?limit=${pageNum * 20}`,
+    );
     let results = response.data.results; // Access the "results" array from the response data.
 
     const pokemonsData = await Promise.all(
@@ -23,7 +25,7 @@ const allPokemons = async () => {
           weight: pokemonData.weight,
           types: pokemonData.types.map((type) => type.type.name),
         };
-      })
+      }),
     );
 
     const dbData = await Pokemon.findAll({
@@ -63,7 +65,7 @@ const allPokemons = async () => {
         weight: weight,
         types: types.map((type) => type.name),
         createDb,
-      })
+      }),
     );
 
     const allData = [...pokemonsData, ...dbDataPokemons];
@@ -74,4 +76,3 @@ const allPokemons = async () => {
 };
 
 module.exports = allPokemons;
-
