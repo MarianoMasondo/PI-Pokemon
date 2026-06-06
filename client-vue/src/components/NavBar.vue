@@ -9,7 +9,7 @@ import vueLogo from "@/assets/vue-logo.png";
         <span class="pokeball" aria-hidden="true"></span>
 
         <div>
-          <strong>Pokédex</strong>
+          <strong>Pokémon</strong>
 
           <div class="vue-edition">
             <img :src="vueLogo" alt="Vue" />
