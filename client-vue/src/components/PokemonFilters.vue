@@ -14,20 +14,17 @@ defineProps({
     type: Array,
     required: true,
   },
-})
+});
 
-const emit = defineEmits([
-  'update:selected-type',
-  'update:selected-origin',
-])
+const emit = defineEmits(["update:selected-type", "update:selected-origin"]);
 
 const handleTypeChange = (event) => {
-  emit('update:selected-type', event.target.value)
-}
+  emit("update:selected-type", event.target.value);
+};
 
 const handleOriginChange = (event) => {
-  emit('update:selected-origin', event.target.value)
-}
+  emit("update:selected-origin", event.target.value);
+};
 </script>
 
 <template>
@@ -35,19 +32,10 @@ const handleOriginChange = (event) => {
     <label>
       Tipo:
 
-      <select
-        :value="selectedType"
-        @change="handleTypeChange"
-      >
-        <option value="all">
-          Todos
-        </option>
+      <select :value="selectedType" @change="handleTypeChange">
+        <option value="all">Todos</option>
 
-        <option
-          v-for="type in availableTypes"
-          :key="type"
-          :value="type"
-        >
+        <option v-for="type in availableTypes" :key="type" :value="type">
           {{ type }}
         </option>
       </select>
@@ -56,21 +44,12 @@ const handleOriginChange = (event) => {
     <label>
       Origen:
 
-      <select
-        :value="selectedOrigin"
-        @change="handleOriginChange"
-      >
-        <option value="all">
-          Todos
-        </option>
+      <select :value="selectedOrigin" @change="handleOriginChange">
+        <option value="all">Todos</option>
 
-        <option value="api">
-          API
-        </option>
+        <option value="api">API</option>
 
-        <option value="db">
-          Base de datos
-        </option>
+        <option value="db">Base de datos</option>
       </select>
     </label>
   </section>
@@ -79,21 +58,32 @@ const handleOriginChange = (event) => {
 <style scoped>
 .filters {
   display: flex;
-  gap: 16px;
-  margin-bottom: 20px;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin: 0;
 }
 
 label {
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  gap: 5px;
+  color: #cbd5e1;
+  font-size: 13px;
 }
 
 select {
-  min-width: 180px;
-  padding: 8px;
-  border: 1px solid #cccccc;
+  min-width: 170px;
+  padding: 9px 10px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
   border-radius: 8px;
+  background: #f8fafc;
+  color: #111827;
+  font-size: 14px;
   text-transform: capitalize;
+  outline: none;
+}
+
+select:focus {
+  border-color: #facc15;
 }
 </style>

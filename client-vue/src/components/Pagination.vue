@@ -9,13 +9,13 @@ defineProps({
     type: Number,
     required: true,
   },
-})
+});
 
-const emit = defineEmits(['change-page'])
+const emit = defineEmits(["change-page"]);
 
 const changePage = (pageNumber) => {
-  emit('change-page', pageNumber)
-}
+  emit("change-page", pageNumber);
+};
 </script>
 
 <template>
@@ -34,20 +34,40 @@ const changePage = (pageNumber) => {
 <style scoped>
 .pagination {
   display: flex;
+  justify-content: center;
   flex-wrap: wrap;
-  gap: 8px;
-  margin-top: 24px;
+  gap: 7px;
+  margin-top: 22px;
 }
 
 button {
-  padding: 8px 12px;
-  border: 1px solid #cccccc;
-  border-radius: 6px;
+  display: grid;
+  width: 36px;
+  height: 36px;
+  place-items: center;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 9px;
+  background: rgba(255, 255, 255, 0.08);
+  color: #cbd5e1;
+  font-size: 13px;
+  font-weight: 800;
   cursor: pointer;
+  transition:
+    transform 160ms ease,
+    border-color 160ms ease,
+    background-color 160ms ease,
+    color 160ms ease;
+}
+
+button:hover {
+  transform: translateY(-2px);
+  border-color: rgba(250, 204, 21, 0.5);
+  color: #facc15;
 }
 
 button.active {
-  font-weight: bold;
-  border: 2px solid #333333;
+  border-color: #facc15;
+  background: #facc15;
+  color: #111827;
 }
 </style>
