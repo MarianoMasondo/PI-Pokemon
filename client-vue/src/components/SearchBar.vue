@@ -14,26 +14,31 @@ const handleInput = (event) => {
 </script>
 
 <template>
-  <div class="search-bar">
-    <input
-      type="text"
-      :value="searchTerm"
-      placeholder="Buscar Pokémon..."
-      @input="handleInput"
-    />
-  </div>
+  <label>
+    Buscar:
+    <div class="search-bar">
+      <input
+        type="text"
+        :value="searchTerm"
+        placeholder="Buscar Pokémon..."
+        @input="handleInput"
+      />
+    </div>
+  </label>
 </template>
 
 <style scoped>
 .search-bar {
   display: flex;
-  justify-content: center;
-  margin-bottom: 14px;
+  flex-direction: column;
+  gap: 5px;
+  margin: 0;
 }
 
 input {
-  width: min(100%, 520px);
-  padding: 10px 12px;
+  width: 300px;
+  min-height: 39px;
+  padding: 9px 12px;
   border: 1px solid rgba(255, 255, 255, 0.15);
   border-radius: 9px;
   background: #f8fafc;
@@ -48,5 +53,12 @@ input {
 input:focus {
   border-color: #facc15;
   box-shadow: 0 0 0 3px rgba(250, 204, 21, 0.14);
+}
+
+@media (max-width: 700px) {
+  .search-bar,
+  input {
+    width: 100%;
+  }
 }
 </style>

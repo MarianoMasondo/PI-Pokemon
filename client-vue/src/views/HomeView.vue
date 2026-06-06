@@ -129,26 +129,24 @@ const deletePokemon = async (id) => {
 
       <section v-else>
         <section class="controls-panel">
-          <div class="controls-content">
+          <div class="controls-row">
             <SearchBar
               :search-term="searchTerm"
               @update:search-term="searchTerm = $event"
             />
 
-            <div class="controls-row">
-              <PokemonFilters
-                :selected-type="selectedType"
-                :selected-origin="selectedOrigin"
-                :available-types="availableTypes"
-                @update:selected-type="selectedType = $event"
-                @update:selected-origin="selectedOrigin = $event"
-              />
+            <PokemonFilters
+              :selected-type="selectedType"
+              :selected-origin="selectedOrigin"
+              :available-types="availableTypes"
+              @update:selected-type="selectedType = $event"
+              @update:selected-origin="selectedOrigin = $event"
+            />
 
-              <PokemonSort
-                :selected-order="selectedOrder"
-                @update:selected-order="selectedOrder = $event"
-              />
-            </div>
+            <PokemonSort
+              :selected-order="selectedOrder"
+              @update:selected-order="selectedOrder = $event"
+            />
           </div>
         </section>
 
@@ -261,10 +259,12 @@ h1 {
   background: rgba(16, 28, 48, 0.76);
   box-shadow: 0 12px 24px rgba(2, 8, 23, 0.16);
 }
-
-.controls-content {
-  width: min(760px, 100%);
-  margin: 0 auto;
+.controls-row {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px;
 }
 
 .controls-row {
