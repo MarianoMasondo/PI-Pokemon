@@ -31,7 +31,12 @@ const handleDelete = () => {
       <h2>{{ pokemon.name }}</h2>
 
       <div class="types-container">
-        <span v-for="type in pokemon.types" :key="type" class="type-badge">
+        <span
+          v-for="type in pokemon.types"
+          :key="type"
+          class="type-badge"
+          :class="`type-${type.toLowerCase()}`"
+        >
           {{ type }}
         </span>
       </div>
@@ -155,11 +160,12 @@ h2 {
 
 .type-badge {
   padding: 3px 7px;
+  border: 1px solid var(--type-border, rgba(255, 255, 255, 0.14));
   border-radius: 999px;
-  background: rgba(255, 255, 255, 0.08);
-  color: #cbd5e1;
+  background: var(--type-bg, rgba(255, 255, 255, 0.08));
+  color: var(--type-text, #cbd5e1);
   font-size: 10px;
-  font-weight: 700;
+  font-weight: 800;
   text-transform: capitalize;
 }
 

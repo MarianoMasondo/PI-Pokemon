@@ -1,9 +1,9 @@
-import { defineStore } from 'pinia'
-import axios from 'axios'
+import { defineStore } from "pinia";
+import axios from "axios";
 
-const API_URL = import.meta.env.VITE_API_URL
+const API_URL = import.meta.env.VITE_API_URL;
 
-export const usePokemonStore = defineStore('pokemon', {
+export const usePokemonStore = defineStore("pokemon", {
   state: () => ({
     pokemons: [],
     pokemonDetail: null,
@@ -12,74 +12,72 @@ export const usePokemonStore = defineStore('pokemon', {
     isLoadingPokemons: false,
     isLoadingDetail: false,
 
-    pokemonsError: '',
-    detailError: '',
+    pokemonsError: "",
+    detailError: "",
   }),
 
   actions: {
     async getPokemons() {
-      this.isLoadingPokemons = true
-      this.pokemonsError = ''
+      this.isLoadingPokemons = true;
+      this.pokemonsError = "";
 
       try {
-        const response = await axios.get(`${API_URL}/pokemons`)
+        const response = await axios.get(`${API_URL}/pokemons`);
 
-        this.pokemons = response.data
+        this.pokemons = response.data;
       } catch (error) {
         this.pokemonsError =
-          error.response?.data?.error ||
-          'No se pudieron cargar los Pokémon.'
+          error.response?.data?.error || "No se pudieron cargar los Pokémon.";
       } finally {
-        this.isLoadingPokemons = false
+        this.isLoadingPokemons = false;
       }
     },
 
     async getPokemonDetail(id) {
-      this.isLoadingDetail = true
-      this.detailError = ''
-      this.pokemonDetail = null
+      this.isLoadingDetail = true;
+      this.detailError = "";
+      this.pokemonDetail = null;
 
       try {
-        const response = await axios.get(
-          `${API_URL}/pokemons/${id}`
-        )
+        const response = await axios.get(`${API_URL}/pokemons/${id}`);
 
-        const pokemon = response.data
+        const pokemon = response.data;
 
         this.pokemonDetail = {
           ...pokemon,
-          types:
-            pokemon.types ??
-            pokemon.Types?.map((type) => type.name) ??
-            [],
-        }
+          types: Array.isArray(pokemon.types)
+            ? pokemon.types
+            : Array.isArray(pokemon.type)
+              ? pokemon.type
+              : Array.isArray(pokemon.Types)
+                ? pokemon.Types.map((type) => type.name)
+                : [],
+        };
       } catch (error) {
         this.detailError =
           error.response?.data?.error ||
-          'No se pudo cargar el detalle del Pokémon.'
+          "No se pudo cargar el detalle del Pokémon.";
       } finally {
-        this.isLoadingDetail = false
+        this.isLoadingDetail = false;
       }
     },
 
     async getTypes() {
-      const response = await axios.get(`${API_URL}/types`)
+      const response = await axios.get(`${API_URL}/types`);
 
-      this.types = response.data
+      this.types = response.data;
     },
 
     async createPokemon(newPokemon) {
-      await axios.post(`${API_URL}/pokemons`, newPokemon)
+      await axios.post(`${API_URL}/pokemons`, newPokemon);
 
-      await this.getPokemons()
+      await this.getPokemons();
     },
 
     async deletePokemon(id) {
-  await axios.delete(`${API_URL}/pokemons/${id}`)
+      await axios.delete(`${API_URL}/pokemons/${id}`);
 
-  this.pokemons = this.pokemons.filter(
-    (pokemon) => pokemon.id !== id
-  )
-},
+      this.pokemons = this.pokemons.filter((pokemon) => pokemon.id !== id);
+    },
   },
-})
+});
